@@ -8,27 +8,25 @@
 using namespace std;
 
 
-unsigned int fileSize;
-unsigned int subChunk1Size;
-unsigned int numChannels;
-unsigned int sampleRate;
-unsigned int  sampleSize;
-
-/*struct wavInfo{
+struct wavInfo{
 	
 unsigned int fileSize;
 unsigned int subChunk1Size;
 unsigned int numChannels;
 unsigned int sampleRate;
-unsigned int  sampleSize;	
-} wav;*/
+unsigned int sampleSize;
+
+float arr[];
+
+	
+} xWav,hWav;
 
 
 
 /*  Function prototypes  */
 void convolve(float x[], int N, float h[], int M, float y[], int P);
 void print_vector(char *title, float x[], int N);
-short int* readWavFile(char *inputFileName);
+short int* readWavFile(char *inputFileName, wavInfo &wav);
 
 
 /*****************************************************************************
@@ -43,19 +41,17 @@ int main(int argc, char *argv[])
 {
 	
 	streampos size;
-  char *memblock;
-
-	char *inputFileName = argv[1];
+    char *inputFileName = argv[1];
 	char *outputFilename = argv[3];
 	char *IRFilename = argv[2];
 
-	short *x_temp = readWavFile(inputFileName);
-	short *h_temp = readWavFile(IRFilename);
+	short *x_temp = readWavFile(inputFileName,xWav);
+	//short *h_temp = readWavFile(IRFilename,hWav);
 
-	for(int i = 0; i< fileSize/2; i++)
+	for(int i = 0; i < hWav.fileSize/2; i++)
 	{
-		cout << h[i] << " ";
-	}
+		cout << hWav.arr[i] << " ";
+	} 
 
   
   return 0;
@@ -64,59 +60,63 @@ int main(int argc, char *argv[])
 
 
 
-short * readWavFile(char *inputFileName){
+short * readWavFile(char *inputFileName, wavInfo &wav){
 	
-	streampos size;
-  char * memblock;
-  int fileSizeOffset;
+    streampos size;
+    char * memblock;
+    int fileSizeOffset;
   
 	ifstream file ( inputFileName, ios::in|ios::binary|ios::ate);
 	
 	
 	
-  if (file.is_open())
-  {
-	
-	
-    size = file.tellg();
-    memblock = new char [size];
-    file.seekg (0, ios::beg);
-    file.read (memblock, size);
-    file.close();
+    if (file.is_open())
+    {
+        size = file.tellg();
+        memblock = new char [size];
+        file.seekg (0, ios::beg);
+        file.read (memblock, size);
+        file.close();
 
-	//subChunk1Size = memblock[16];
-	memcpy(&subChunk1Size, &memblock[16],4);
-	
-	fileSizeOffset = 40 + (subChunk1Size - 16);
-	
-	//cout << ("offset: ") << fileSizeOffset; 
-	
-	//cout << memblock[40];
-	memcpy (&fileSize,&memblock[fileSizeOffset],4);
-	short * outArr = new short[fileSize/2];
-	int fileSize1 =  memblock[41];
-	int fileSize2 = memblock[42];
-	
-	
-	
-	
-	cout << "filesize :" << (fileSize) << "\n";
-	cout << "subChunkSize: " << (subChunk1Size) << "\n";
-	//cout << (25) << "\n";
-    //cout << "the entire file content is in memory";
-    int t = 0;
-   for(int i = (fileSizeOffset + 4); i < fileSize; i+=2){	
-			
-		short left = (memblock[i] << 8);
-		short right = memblock[i+1];
-		short combo = left & right;
-		outArr[t++] = combo;
-		//cout << outArr[t++] << " ";
-	} 
+        //subChunk1Size = memblock[16];
+        memcpy(&wav.subChunk1Size, &memblock[16],4);
+    
+        fileSizeOffset = 40 + (wav.subChunk1Size - 16);
+    
+        //cout << ("offset: ") << fileSizeOffset; 
+    
+        //cout << memblock[40];
+        memcpy (&wav.fileSize,&memblock[fileSizeOffset],4);
+        short * outArr = new short[wav.fileSize/2];
+        int fileSize1 =  memblock[41];
+        int fileSize2 = memblock[42];
+    
+    
+    
+    
+        cout << "filesize :" << (wav.fileSize) << "\n";
+        cout << "subChunkSize: " << (wav.subChunk1Size) << "\n";
+        //cout << (25) << "\n";
+        //cout << "the entire file content is in memory";
+        int t = 0;
+        for(int i = (fileSizeOffset + 4); i < wav.fileSize; i+=2){	
+                
+            short left = (memblock[i] << 8);
+            short right = memblock[i+1];
+            short combo = left & right;
+            if(combo < 0){
+                wav.arr[t] = (float) (combo/(-32768));
+            }
+            else{
+                wav.arr[t] = (float) (combo/32767);
+            }
+            outArr[t++] = combo;
+            //cout << outArr[t++] << " ";
+        } 
 
-    return &outArr[1];
-  }
-  else cout << "Unable to open file";
+        return &outArr[1];
+    }
+    else cout << "Unable to open file";
 }
 /*****************************************************************************
 *
