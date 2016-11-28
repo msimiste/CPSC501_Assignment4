@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
 	char *outputFilename = argv[3];
 	char *IRFilename = argv[2];
 
-	short *x_temp = readWavFile(inputFileName,xWav);
-	//short *h_temp = readWavFile(IRFilename,hWav);
+	//short *x_temp = readWavFile(inputFileName,xWav);
+	short *h_temp = readWavFile(IRFilename,hWav);
 
 	for(int i = 0; i < hWav.fileSize/2; i++)
 	{
@@ -104,12 +104,21 @@ short * readWavFile(char *inputFileName, wavInfo &wav){
             short left = (memblock[i] << 8);
             short right = memblock[i+1];
             short combo = left & right;
-            if(combo < 0){
-                wav.arr[t] = (float) (combo/(-32768));
+            if(combo == 0){
+            wav.arr[t] = combo;
+            }            
+            else if(combo <= 0){
+                /* float tmp = (float)(combo >> 16);
+                wav.arr[t] = (((float) (combo))/((float) (-32768)));
+                cout << wav.arr[t] << " "; */
             }
             else{
-                wav.arr[t] = (float) (combo/32767);
-            }
+               //wav.arr[t] = (((float) (combo))/((float) (32767)));
+               wav.arr[t] = (float) (combo >> 15);
+               cout << wav.arr[t] << " ";
+            } 
+            
+            cout << wav.arr[t];
             outArr[t++] = combo;
             //cout << outArr[t++] << " ";
         } 
