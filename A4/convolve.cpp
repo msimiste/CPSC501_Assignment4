@@ -108,13 +108,13 @@ short * readWavFile(char *inputFileName, wavInfo &wav){
             wav.arr[t] = combo;
             }            
             else if(combo <= 0){
-                /* float tmp = (float)(combo >> 16);
+                float tmp = (float)(combo >> 16);
                 wav.arr[t] = (((float) (combo))/((float) (-32768)));
-                cout << wav.arr[t] << " "; */
+                cout << wav.arr[t] << " ";
             }
             else{
-               //wav.arr[t] = (((float) (combo))/((float) (32767)));
-               wav.arr[t] = (float) (combo >> 15);
+               wav.arr[t] = (((float) (combo))/((float) (32767)));
+               //wav.arr[t] = (float) (combo >> 15);
                cout << wav.arr[t] << " ";
             } 
             
