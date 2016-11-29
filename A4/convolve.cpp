@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 
@@ -16,7 +17,6 @@ unsigned int ChunkSize;
 char * Format;
 char * SubChunkID;
 unsigned int subChunk1Size;
-
 unsigned int numChannels;
 unsigned int sampleRate;
 unsigned int sampleSize;
@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
     char *inputFileName = argv[1];
 	char *outputFilename = argv[3];
 	char *IRFilename = argv[2];
-
 	short *x_temp = readWavFile(inputFileName,xWav); //143351
 	short *h_temp = readWavFile(IRFilename, hWav);
 
@@ -62,15 +61,6 @@ int main(int argc, char *argv[])
 			cout << hWav.arr.at(i) << " ";
 	}
 	
-	//hWav.arr = new float [hWav.fileSize/2];
-	//cout << hWav.fileSize/4;
-	/*for(int i = 0; i < hWav.fileSize/2; i++)
-	{
-		//hWav.arr.at(i) = 
-		hWav.arr.push_back(((float)h_temp[i]/(float)32767));
-		cout << hWav.arr.at(i) << " ";
-		//cout << h_temp[i] <<  " ";
-	}*/
 
   
   return 0;
@@ -128,38 +118,18 @@ short * readWavFile(char *inputFileName, wavInfo &wav){
         short * outArr = new short[wav.fileSize/2];
         int fileSize1 =  memblock[41];
         int fileSize2 = memblock[42];
-    
-    
-    
-    
         cout << "filesize :" << (wav.fileSize) << "\n";
         cout << "subChunkSize: " << (wav.subChunk1Size) << "\n";
-        //cout << (25) << "\n";
-        //cout << "the entire file content is in memory";
+      
         int t = 0;
         for(int i = (fileSizeOffset + 4); i < wav.fileSize; i+=2){	
                 
             short left = (memblock[i] << 8);
             short right = memblock[i+1];
             short combo = left & right;
-			/*if(combo == 0){
-            wav.arr[t] = combo;
-            } */         
-            /*else if(combo <= 0){
-                wav.arr[t] = (((float) (combo))/((float) (-32768)));
-                //cout << wav.arr[t] << " ";
-            }
-            else{
-               wav.arr[t] = (((float) (combo))/((float) (32767)));
-              
-            }  */  
-            //outArr.push_back(combo);
-            //cout << left << " ";
-            outArr[t++] = combo;
-            //cout << outArr[t++] << " ";
-        } 
-
-        return &outArr[1];
+		    outArr[t++] = combo;
+         } 
+	   return &outArr[1];
     }
     else cout << "Unable to open file";
 }
