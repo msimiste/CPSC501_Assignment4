@@ -5,18 +5,23 @@
 #include <string.h>
 #include <fstream>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
 struct wavInfo{
 	
 unsigned int fileSize;
+unsigned int ChunkSize;
+char * Format;
+char * SubChunkID;
 unsigned int subChunk1Size;
+
 unsigned int numChannels;
 unsigned int sampleRate;
 unsigned int sampleSize;
 
-float arr[];
+vector<float> arr;
 
 	
 } xWav,hWav;
@@ -27,6 +32,7 @@ float arr[];
 void convolve(float x[], int N, float h[], int M, float y[], int P);
 void print_vector(char *title, float x[], int N);
 short int* readWavFile(char *inputFileName, wavInfo &wav);
+void fillFloatArray(short *	inWav, wavInfo& wav);
 
 
 /*****************************************************************************
@@ -45,19 +51,49 @@ int main(int argc, char *argv[])
 	char *outputFilename = argv[3];
 	char *IRFilename = argv[2];
 
-	//short *x_temp = readWavFile(inputFileName,xWav);
-	short *h_temp = readWavFile(IRFilename,hWav);
+	short *x_temp = readWavFile(inputFileName,xWav); //143351
+	short *h_temp = readWavFile(IRFilename, hWav);
 
-	for(int i = 0; i < hWav.fileSize/2; i++)
+	fillFloatArray(x_temp, xWav);
+	fillFloatArray(h_temp, hWav);
+	
+	for(int i = 0; i < hWav.arr.size(); i++){
+	
+			cout << hWav.arr.at(i) << " ";
+	}
+	
+	//hWav.arr = new float [hWav.fileSize/2];
+	//cout << hWav.fileSize/4;
+	/*for(int i = 0; i < hWav.fileSize/2; i++)
 	{
-		cout << hWav.arr[i] << " ";
-	} 
+		//hWav.arr.at(i) = 
+		hWav.arr.push_back(((float)h_temp[i]/(float)32767));
+		cout << hWav.arr.at(i) << " ";
+		//cout << h_temp[i] <<  " ";
+	}*/
 
   
   return 0;
 }
 
 
+void fillFloatArray(short  * inWav, wavInfo& wav){
+
+	for(int i = 0; i < wav.fileSize/2; i++)
+	{
+		//hWav.arr.at(i) = 
+		if(inWav[i] == 0){ wav.arr.push_back(inWav[i]);}
+		else if(inWav[i] > 0){
+			wav.arr.push_back(((float)inWav[i]/(float)32767));
+		}
+		else{
+			wav.arr.push_back(((float)inWav[i]/(float)32768));
+		}
+		
+		//cout << wav.arr.at(i) << " ";
+		//cout << h_temp[i] <<  " ";
+	}
+}
 
 
 short * readWavFile(char *inputFileName, wavInfo &wav){
@@ -87,6 +123,8 @@ short * readWavFile(char *inputFileName, wavInfo &wav){
     
         //cout << memblock[40];
         memcpy (&wav.fileSize,&memblock[fileSizeOffset],4);
+        //short * outArr = new short[wav.fileSize/2];
+        
         short * outArr = new short[wav.fileSize/2];
         int fileSize1 =  memblock[41];
         int fileSize2 = memblock[42];
@@ -104,21 +142,19 @@ short * readWavFile(char *inputFileName, wavInfo &wav){
             short left = (memblock[i] << 8);
             short right = memblock[i+1];
             short combo = left & right;
-            if(combo == 0){
+			/*if(combo == 0){
             wav.arr[t] = combo;
-            }            
-            else if(combo <= 0){
-                float tmp = (float)(combo >> 16);
+            } */         
+            /*else if(combo <= 0){
                 wav.arr[t] = (((float) (combo))/((float) (-32768)));
-                cout << wav.arr[t] << " ";
+                //cout << wav.arr[t] << " ";
             }
             else{
                wav.arr[t] = (((float) (combo))/((float) (32767)));
-               //wav.arr[t] = (float) (combo >> 15);
-               cout << wav.arr[t] << " ";
-            } 
-            
-            cout << wav.arr[t];
+              
+            }  */  
+            //outArr.push_back(combo);
+            //cout << left << " ";
             outArr[t++] = combo;
             //cout << outArr[t++] << " ";
         } 
