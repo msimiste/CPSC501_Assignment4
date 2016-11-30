@@ -108,16 +108,16 @@ int main(int argc, char *argv[])
 	float* y = new float[p];
 	
 	
-	//convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
+	convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
 	
 	int outVals[p];
 	
-	//fillIntArray(y,outVals,p);
+	fillIntArray(y,outVals,p);
 	
-	float* t = new float[xWav.arr.size()];
-	for(int i = 0; i < xWav.arr.size(); i++){ t[i] = xWav.arr.at(i);}
+	//float* t = new float[xWav.arr.size()];
+	//for(int i = 0; i < xWav.arr.size(); i++){ t[i] = xWav.arr.at(i);}
 	
-	fillIntArray(t, outVals, xWav.arr.size());
+	//fillIntArray(t, outVals, xWav.arr.size());
 	
 	for(int i = 0; i < p; i++){
 		cout << outVals[i] << " ";
