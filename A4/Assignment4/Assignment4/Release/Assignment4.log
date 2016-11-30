@@ -1,0 +1,24 @@
+﻿Build started 11/29/2016 12:57:32 PM.
+     1>Project "C:\Users\Shim\Desktop\School\CPSC501\Assignment4\A4\Assignment4\Assignment4\Assignment4.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\convolve.cpp Assignment4.cpp
+         convolve.cpp
+     1>..\..\convolve.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\convolve.cpp(83): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\convolve.cpp(113): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'unsigned int', possible loss of data
+     1>..\..\convolve.cpp(141): warning C4018: '<' : signed/unsigned mismatch
+         Assignment4.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Shim\Desktop\School\CPSC501\Assignment4\A4\Assignment4\Release\Assignment4.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Shim\Desktop\School\CPSC501\Assignment4\A4\Assignment4\Release\Assignment4.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Shim\Desktop\School\CPSC501\Assignment4\A4\Assignment4\Release\Assignment4.lib" /MACHINE:X86 /SAFESEH Release\convolve.obj
+         Release\Assignment4.obj
+         Release\stdafx.obj
+     1>LINK : warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
+         Generating code
+     1>c:\users\shim\desktop\school\cpsc501\assignment4\a4\convolve.cpp(166): warning C4715: 'readWavFile' : not all control paths return a value
+         Finished generating code
+         Assignment4.vcxproj -> C:\Users\Shim\Desktop\School\CPSC501\Assignment4\A4\Assignment4\Release\Assignment4.exe
+     1>Done Building Project "C:\Users\Shim\Desktop\School\CPSC501\Assignment4\A4\Assignment4\Assignment4\Assignment4.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:14.80
