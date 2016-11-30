@@ -11,7 +11,7 @@ using namespace std;
 
 struct wavInfo{
 	
-unsigned int fileSize;
+char * ChunkID;
 unsigned int ChunkSize;
 char * Format;
 char * SubChunkID;
@@ -19,11 +19,17 @@ unsigned int subChunk1Size;
 
 unsigned int numChannels;
 unsigned int sampleRate;
+unsigned int ByteRate;
+unsigned int BlockAlign;
 unsigned int sampleSize;
 
-vector<float> arr;
+char * SubChunk2ID;
+unsigned int Subchunk2Size;
 
-	
+
+unsigned int fileSize;
+vector<float> arr;	
+
 } xWav,hWav;
 
 
@@ -60,38 +66,24 @@ int main(int argc, char *argv[])
 	for(int i = 0; i < hWav.arr.size(); i++){
 	
 			cout << hWav.arr.at(i) << " ";
-	}
+	}  
 	
-	//hWav.arr = new float [hWav.fileSize/2];
-	//cout << hWav.fileSize/4;
-	/*for(int i = 0; i < hWav.fileSize/2; i++)
-	{
-		//hWav.arr.at(i) = 
-		hWav.arr.push_back(((float)h_temp[i]/(float)32767));
-		cout << hWav.arr.at(i) << " ";
-		//cout << h_temp[i] <<  " ";
-	}*/
-
-  
   return 0;
 }
+
 
 
 void fillFloatArray(short  * inWav, wavInfo& wav){
 
 	for(int i = 0; i < wav.fileSize/2; i++)
 	{
-		//hWav.arr.at(i) = 
 		if(inWav[i] == 0){ wav.arr.push_back(inWav[i]);}
 		else if(inWav[i] > 0){
 			wav.arr.push_back(((float)inWav[i]/(float)32767));
 		}
 		else{
 			wav.arr.push_back(((float)inWav[i]/(float)32768));
-		}
-		
-		//cout << wav.arr.at(i) << " ";
-		//cout << h_temp[i] <<  " ";
+		}		
 	}
 }
 
@@ -114,51 +106,36 @@ short * readWavFile(char *inputFileName, wavInfo &wav){
         file.read (memblock, size);
         file.close();
 
-        //subChunk1Size = memblock[16];
+		//get ChunkId value
+        memcpy(&wav.ChunkID, &memblock[0], 4);
+        
+        //get ChunkSize value
         memcpy(&wav.subChunk1Size, &memblock[16],4);
+        
+        //get Format value
+        memcpy(&wav.Format, &memblock[12],4);
     
-        fileSizeOffset = 40 + (wav.subChunk1Size - 16);
     
-        //cout << ("offset: ") << fileSizeOffset; 
-    
-        //cout << memblock[40];
+        fileSizeOffset = 40 + (wav.subChunk1Size - 16); 
+       
         memcpy (&wav.fileSize,&memblock[fileSizeOffset],4);
-        //short * outArr = new short[wav.fileSize/2];
+       
         
         short * outArr = new short[wav.fileSize/2];
         int fileSize1 =  memblock[41];
         int fileSize2 = memblock[42];
     
-    
-    
-    
         cout << "filesize :" << (wav.fileSize) << "\n";
         cout << "subChunkSize: " << (wav.subChunk1Size) << "\n";
-        //cout << (25) << "\n";
-        //cout << "the entire file content is in memory";
+     
         int t = 0;
         for(int i = (fileSizeOffset + 4); i < wav.fileSize; i+=2){	
                 
             short left = (memblock[i] << 8);
             short right = memblock[i+1];
-            short combo = left & right;
-			/*if(combo == 0){
-            wav.arr[t] = combo;
-            } */         
-            /*else if(combo <= 0){
-                wav.arr[t] = (((float) (combo))/((float) (-32768)));
-                //cout << wav.arr[t] << " ";
-            }
-            else{
-               wav.arr[t] = (((float) (combo))/((float) (32767)));
-              
-            }  */  
-            //outArr.push_back(combo);
-            //cout << left << " ";
-            outArr[t++] = combo;
-            //cout << outArr[t++] << " ";
+            short combo = left & right;			
+            outArr[t++] = combo;            
         } 
-
         return &outArr[1];
     }
     else cout << "Unable to open file";
