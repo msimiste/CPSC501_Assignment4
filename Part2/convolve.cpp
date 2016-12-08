@@ -8,8 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
-
+#include <time.h>  
 
 
 
@@ -104,33 +103,54 @@ int main(int argc, char *argv[])
 	short *x_temp = readWavFile(inputFileName,xWav); //143351
 	short *h_temp = readWavFile(IRFilename, hWav);
 
-	for(int i = 0; i < hWav.arr.size(); i++){
+	/*for(int i = 0; i < hWav.arr.size(); i++){
 		hWav.arr.at(i) = 1.0;
-	}
+	}*/
 	
 	int nextPow = getNextPowOf2(xWav.arr.size());
 	
+	
+	//make arrays a power of two
 	short *x_tempPow2 = new short[nextPow];
-	short *y_tempPow2 = new short[nextPow];
+	short *h_tempPow2 = new short[nextPow];
 	
+	//pad arrays with zeroes
+	for(int i = 0; i<nextPow; i++){
+		x_tempPow2[i] = 0;
+		h_tempPow2[i] = 0;
+	}
 	
+	//copy the original data into the powerOf2 array
+	memcpy(&x_tempPow2, &x_temp[0], xWav.arr.size());
+	memcpy(&h_tempPow2, &h_temp[0], hWav.arr.size());
+	
+	//fillFloatArray(x_temp, xWav);
+	//fillFloatArray(h_temp, hWav);
+
 	fillFloatArray(x_temp, xWav);
 	fillFloatArray(h_temp, hWav);
+
 	
 	int p = xWav.arr.size() + hWav.arr.size() - 1;
 	float* y = new float[p];
 	
 	//FFT HERE
 	
-	//convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
 	
+	//get start time
+	clock_t t;	
+	t = clock();
+	convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
+	t = clock() - t;
+	printf("It took me %d clicks (%f seconds) to convolve.\n", t, ((float)t) / CLOCKS_PER_SEC);
 	int outVals[p];
 	
 	fillIntArray(y,outVals,p);	
 	
-	for(int i = 0; i < p; i++){
-		cout << outVals[i] << " ";
-	}
+	//for debugging
+	//for(int i = 0; i < p; i++){
+		//cout << outVals[i] << " ";
+	//}
 	createTone(FREQUENCY, DURATION, MONOPHONIC,p, outVals,outputFilename);
 	
   return 0;
@@ -282,11 +302,12 @@ void convolve(vector<float> x, int N, vector<float> h, int M, float y[], int P)
 	}
   }
   
-  for(int i = 0; i < P; i++){
+  //for debugging
+  //for(int i = 0; i < P; i++){
 	
-	y[i] = y[i]/max;
-	cout << y[i] << " ";
-  }
+	//y[i] = y[i]/max;
+	//cout << y[i] << " ";
+  //}
 }
 
 /*****************************************************************************
@@ -386,7 +407,8 @@ void createTone(double frequency, double duration,
 
 
 /******************************************************************************
-*
+*t = clock() - t;
+	printf("It took me %d clicks (%f seconds).\n", t, ((float)t) / CLOCKS_PER_SEC);
 *       function:       writeWaveFileHeader
 *
 *       purpose:        Writes the header in WAVE format to the output file.
@@ -482,7 +504,6 @@ void writeWaveFileHeader(int channels, int numberSamples,
 size_t fwriteIntLSB(int data, FILE *stream)
 {
     unsigned char array[4];
-
     array[3] = (unsigned char)((data >> 24) & 0xFF);
     array[2] = (unsigned char)((data >> 16) & 0xFF);
     array[1] = (unsigned char)((data >> 8) & 0xFF);
