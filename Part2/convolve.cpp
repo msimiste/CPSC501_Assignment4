@@ -102,12 +102,13 @@ int main(int argc, char *argv[])
 
 	short *x_temp = readWavFile(inputFileName,xWav); //143351
 	short *h_temp = readWavFile(IRFilename, hWav);
+	int minSize = xWav.arr.size();
 
 	/*for(int i = 0; i < hWav.arr.size(); i++){
 		hWav.arr.at(i) = 1.0;
 	}*/
 	
-	int nextPow = getNextPowOf2(xWav.arr.size());
+	int nextPow = getNextPowOf2(xWav.fileSize + hWav.fileSize -1);
 	
 	
 	//make arrays a power of two
@@ -121,59 +122,74 @@ int main(int argc, char *argv[])
 	}
 	
 	//copy the original data into the powerOf2 array
-	memcpy(&x_tempPow2, &x_temp[0], xWav.arr.size());
-	memcpy(&h_tempPow2, &h_temp[0], hWav.arr.size());
+	memcpy(x_tempPow2, &x_temp[0], xWav.fileSize);
+	memcpy(h_tempPow2, &h_temp[0], hWav.fileSize/2);
 	
+	cout << nextPow << "\n";
 	//fillFloatArray(x_temp, xWav);
 	//fillFloatArray(h_temp, hWav);
 
-	fillFloatArray(x_temp, xWav);
-	fillFloatArray(h_temp, hWav);
+	//intersperse arrays with zeroes, double the size
+	//fillFloatArray(x_tempPow2, xWav);
+	//fillFloatArray(h_tempPow2, hWav);
+	
+	//for(int i = 0; i< xWav.arr.size(); i++){
+	//		cout << xWav.arr.at(i) <<  " ";
+	//}
+	//convolve, ie do complex number multiplication
+	
 
 	
-	int p = xWav.arr.size() + hWav.arr.size() - 1;
-	float* y = new float[p];
+	//int p = getNextPowOf2(xWav.arr.size() + hWav.arr.size() - 1);
+	//float* y = new float[p];
 	
 	//FFT HERE
 	
 	
 	//get start time
-	clock_t t;	
-	t = clock();
-	convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
-	t = clock() - t;
-	printf("It took me %d clicks (%f seconds) to convolve.\n", t, ((float)t) / CLOCKS_PER_SEC);
-	int outVals[p];
+	//clock_t t;	
+	//t = clock();
+	//convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
+	//t = clock() - t;
+	//printf("It took me %d clicks (%f seconds) to convolve.\n", t, ((float)t) / CLOCKS_PER_SEC);
+	//int outVals[p];
 	
-	fillIntArray(y,outVals,p);	
+	//fillIntArray(y,outVals,p);	
 	
 	//for debugging
 	//for(int i = 0; i < p; i++){
 		//cout << outVals[i] << " ";
 	//}
-	createTone(FREQUENCY, DURATION, MONOPHONIC,p, outVals,outputFilename);
+	//createTone(FREQUENCY, DURATION, MONOPHONIC,p, outVals,outputFilename);
 	
   return 0;
 }
 
 
 
+//intersperse with 0s and normalize the data
 void fillFloatArray(short  * inWav, wavInfo& wav){
 
 	for(int i = 0; i < wav.fileSize/2; i++)
 	{
-		if(inWav[i] == 0){ wav.arr.push_back(inWav[i]);}
+		//cout << i << "\n";
+		if(inWav[i] == 0){ 
+			wav.arr.push_back(inWav[i]);
+			wav.arr.push_back(0.0);
+			}
 		else if(inWav[i] > 0){
 			wav.arr.push_back(((float)inWav[i]/(float)32767));
+			wav.arr.push_back(0.0);
 		}
 		else{
 			wav.arr.push_back(((float)inWav[i]/(float)32768));
+			wav.arr.push_back(0.0);
 		}		
 	}
 }
 
 void fillIntArray(float y[], int *out, int p){
-	for(int i = 0; i < p; i++){
+	for(int i = 0; i < p; i+=2){
 		if(y[i] >= 0 ){
 			out[i] = (int) (y[i] * 32767);
 		}
