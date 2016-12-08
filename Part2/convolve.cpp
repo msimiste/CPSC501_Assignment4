@@ -110,7 +110,9 @@ int main(int argc, char *argv[])
 	
 	int nextPow = getNextPowOf2(xWav.arr.size());
 	
-	short *x_temp2;
+	short *x_tempPow2 = new short[nextPow];
+	short *y_tempPow2 = new short[nextPow];
+	
 	
 	fillFloatArray(x_temp, xWav);
 	fillFloatArray(h_temp, hWav);
