@@ -70,6 +70,7 @@ vector<int> arr1;
 
 
 /*  Function prototypes  */
+void four1(double data[], int nn, int isign);
 void convolve(vector<float> x, int N, vector<float> h, int M, float y[], int P);
 void print_vector(char *title, float x[], int N);
 short int* readWavFile(char *inputFileName, wavInfo &wav);
@@ -83,6 +84,8 @@ size_t fwriteIntLSB(int data, FILE *stream);
 size_t fwriteShortLSB(short int data, FILE *stream);
 
 int getNextPowOf2(int input);
+void postProcessComplex(double x[], int N);
+double * complexMultiply(double a[], double b[], int ind);
 
 /*****************************************************************************
 *
@@ -102,13 +105,19 @@ int main(int argc, char *argv[])
 
 	short *x_temp = readWavFile(inputFileName,xWav); //143351
 	short *h_temp = readWavFile(IRFilename, hWav);
-	int minSize = xWav.arr.size();
+    //int minSize = xWav.arr.size();
 
 	/*for(int i = 0; i < hWav.arr.size(); i++){
 		hWav.arr.at(i) = 1.0;
 	}*/
+	int max; 
+	if(xWav.fileSize >= hWav.fileSize)
+	{
+		max = xWav.fileSize;
+	}
+	else{max = hWav.fileSize;}
 	
-	int nextPow = getNextPowOf2(xWav.fileSize + hWav.fileSize -1);
+	int nextPow = getNextPowOf2((xWav.fileSize/2)+((hWav.fileSize/2) -1));
 	
 	
 	//make arrays a power of two
@@ -122,24 +131,135 @@ int main(int argc, char *argv[])
 	}
 	
 	//copy the original data into the powerOf2 array
-	memcpy(x_tempPow2, &x_temp[0], xWav.fileSize);
+	memcpy(x_tempPow2, &x_temp[0], xWav.fileSize/2);
 	memcpy(h_tempPow2, &h_temp[0], hWav.fileSize/2);
 	
-	cout << nextPow << "\n";
-	//fillFloatArray(x_temp, xWav);
-	//fillFloatArray(h_temp, hWav);
+    //cout << nextPow << "\n";
+	fillFloatArray(x_tempPow2, xWav);
+	fillFloatArray(h_tempPow2, hWav);
 
 	//intersperse arrays with zeroes, double the size
 	//fillFloatArray(x_tempPow2, xWav);
 	//fillFloatArray(h_tempPow2, hWav);
 	
-	//for(int i = 0; i< xWav.arr.size(); i++){
-	//		cout << xWav.arr.at(i) <<  " ";
+    //for(int i = 0; i< xWav.arr.size(); i++){
+    		//cout << xWav.arr.at(i) <<  " ";
+    //}
+
+    double *xVals = new double[nextPow << 1];
+    double *hVals = new double[nextPow << 1];
+    for(int i = 0; i<nextPow << 1; i++){
+		if(i < xWav.arr.size()){
+        xVals[i] = (double) xWav.arr.at(i);
+		}
+		else{xVals[i] = 0.0;}
+    }
+    
+    for(int i = 0; i<nextPow << 1; i++){
+        if(i < hWav.arr.size()){
+        hVals[i] = (double) hWav.arr.at(i);
+		}
+		else{xVals[i] = 0.0;}
+    }
+   
+	cout << "before \n";
+	cout << xWav.arr.size() << " " << "nextPow: " << (nextPow) <<"\n";
+    for(int i = 0; i< 30; i++){
+    		cout << xVals[i] <<  " ";
+    }
+
+	 //for(int i =0; i<30; i++){
+		//cout << "xVals[i]: " << xVals[i] << "\n";
+		//cout << "xVals[i+1]: " << xVals[i+1] << "\n";
+		//cout << "hVals[i]: " << hVals[i] << "\n";
+		//cout << "hVals[i+1]: " << hVals[i+1] << "\n\n";
 	//}
-	//convolve, ie do complex number multiplication
-	
 
 	
+    
+    four1(xVals-1,nextPow,1);    
+    four1(hVals-1,nextPow,1);
+    
+    cout << "\nafter \n";
+    for(int i = 0; i< 30; i++){
+    		cout << xVals[i] <<  " ";
+    }
+ cout << "\nafter \n";
+    //for(int i = 0; i< nextPow; i++){
+		 //xVals[i] = xVals[i] /(nextPow << 1);
+		 
+	 //}
+    
+	 for(int i =0; i<30; i++){
+		cout << "xVals[i]: " << xVals[i] << "\n";
+		cout << "xVals[i+1]: " << xVals[i+1] << "\n";
+		cout << "hVals[i]: " << hVals[i] << "\n";
+		cout << "hVals[i+1]: " << hVals[i+1] << "\n\n";
+	}
+
+    //1 complex multiplication pt by pt ie array * array
+    
+    double *combined = new double[nextPow << 1];
+    combined = complexMultiply(xVals,hVals, nextPow << 1);
+    
+   //for(int i = 0; i< 300; i++){
+		   //cout << combined[i*2] << " ";
+	//}
+	
+	// for(int i =0; i<30; i++){
+		//cout << combined[i] << " ";
+//	}
+	
+    //2take result and run through iFFT, ie inverse FFT
+	four1(combined-1,nextPow << 1, -1);
+	//postProcessComplex(combined,nextPow << 1);
+	//	cout << "\n" << "after\n";
+	
+    // 3 take the result from 2 and create normalized array with only the real parts, ie the even values
+     //for(int i = 0; i< nextPow << 1; i++){
+		 //combined[i] = combined[i]/(nextPow << 1);
+		 
+	 //}
+	
+	 
+	
+	
+	int * real = new int[nextPow];
+	
+	 //for(int i = 0; i< nextPow << 1; i++){
+		 //cout << combined[i*2]/(nextPow << 1) << " ";
+		 
+	 //}
+	for(int i = 0; i < nextPow; i++){
+		real[i] = combined[i*2]/(nextPow);
+	}
+	 //for(int i = 0; i< nextPow << 1; i++){
+	//	 real[i] = real[i] /(nextPow);
+		 
+	// }
+	int maxi = 0;
+	 for(int i =0; i<nextPow; i++){
+		
+		if(abs(real[i] >= max)){
+			maxi = abs(real[i]);
+		}
+	}
+	
+	float *normalized = new float[nextPow];
+	for(int i =0; i<nextPow; i++){
+		normalized[i] = real[i] / max;
+			
+	}
+	
+	int outVals[nextPow];
+	fillIntArray(normalized, outVals, nextPow);
+	createTone(FREQUENCY,DURATION,MONOPHONIC,nextPow, real, outputFilename);
+		
+    //4 write the result from 3 to the file.
+
+    //convolve, ie do complex number multiplication
+	
+
 	//int p = getNextPowOf2(xWav.arr.size() + hWav.arr.size() - 1);
 	//float* y = new float[p];
 	
@@ -167,6 +287,35 @@ int main(int argc, char *argv[])
 
 
 
+//complex multiplication where (a + bi)(c + di) = (ac - bd) + (ad + bc)i
+double * complexMultiply(double a[], double b[], int ind){
+
+		double *out = new double[ind];
+		for(int i = 0; i < ind-2; i+=2){
+			
+			double ac = a[i] * b[i];
+			//cout << ac << " ";
+			double bd = a[i+1] * b[i+1];
+			//cout << bd << " ";
+			double ad = a[i] * b[i+1];
+			//cout << ad << " ";
+			double bc = a[i+1] * b[i];		
+			//cout << bc << " ";
+			double ac_bd = ac - bd;
+			//cout << ac_bd << " ";
+			double ad_bc = ad + bc;
+			//cout << ad_bc << " ";
+			
+			out[i] = ac_bd;
+			out[i+1] = ad_bc;			
+			
+		}
+		return out;
+} 
+
+double * normalize(double in[]){
+		double max = 0.0;
+}
 //intersperse with 0s and normalize the data
 void fillFloatArray(short  * inWav, wavInfo& wav){
 
@@ -174,15 +323,17 @@ void fillFloatArray(short  * inWav, wavInfo& wav){
 	{
 		//cout << i << "\n";
 		if(inWav[i] == 0){ 
-			wav.arr.push_back(inWav[i]);
+			wav.arr.push_back((float) inWav[i]);
 			wav.arr.push_back(0.0);
 			}
 		else if(inWav[i] > 0){
-			wav.arr.push_back(((float)inWav[i]/(float)32767));
+			//wav.arr.push_back(((float)inWav[i]/(float)32767));
+			wav.arr.push_back((float)inWav[i]);
 			wav.arr.push_back(0.0);
 		}
 		else{
-			wav.arr.push_back(((float)inWav[i]/(float)32768));
+			//wav.arr.push_back(((float)inWav[i]/(float)32768));
+			wav.arr.push_back((float)inWav[i]);
 			wav.arr.push_back(0.0);
 		}		
 	}
@@ -555,7 +706,7 @@ size_t fwriteShortLSB(short int data, FILE *stream)
     return fwrite(array, sizeof(unsigned char), 2, stream);
 }
 
-//  The four1 FFT from Numerical Recipes in C,
+// The four1 FFT from Numerical Recipes in C,
 //  p. 507 - 508.
 //  Note:  changed float data types to double.
 //  nn must be a power of 2, and use +1 for
@@ -612,7 +763,6 @@ void four1(double data[], int nn, int isign)
 	mmax = istep;
     }
 }
-
 
 
 // Creates a sine tone with the specified harmonic number.
@@ -755,7 +905,7 @@ void postProcessComplex(double x[], int N)
     // Print out final result
     printf("Harmonic \tAmplitude\n");
     printf("DC \t\t%.6f\n", result[0]);
-    for (k = 1; k <= N/2; k++)
+    for (k = 1; k <= 1500; k++)
 	printf("%-d \t\t%.6f\n", k, result[k]);
     printf("\n");
 
