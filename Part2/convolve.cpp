@@ -75,7 +75,7 @@ void convolve(vector<float> x, int N, vector<float> h, int M, float y[], int P);
 void print_vector(char *title, float x[], int N);
 short int* readWavFile(char *inputFileName, wavInfo &wav);
 void fillFloatArray(short *	inWav, wavInfo& wav);
-void fillIntArray(float y[], int *out, int p);
+void fillIntArray(double y[], int *out, int p);
 void createTone(double frequency, double duration,
                     int numberOfChannels, int numberOfSamples, int out[], char *filename);
 void writeWaveFileHeader(int channels, int numberSamples,
@@ -113,11 +113,11 @@ int main(int argc, char *argv[])
 	int max; 
 	if(xWav.fileSize >= hWav.fileSize)
 	{
-		max = xWav.fileSize;
+		max = xWav.fileSize/2;
 	}
-	else{max = hWav.fileSize;}
+	else{max = hWav.fileSize/2;}
 	
-	int nextPow = getNextPowOf2((xWav.fileSize/2)+((hWav.fileSize/2) -1));
+	int nextPow = getNextPowOf2(max);
 	
 	
 	//make arrays a power of two
@@ -190,12 +190,7 @@ int main(int argc, char *argv[])
 		 
 	 //}
     
-	 for(int i =0; i<30; i++){
-		cout << "xVals[i]: " << xVals[i] << "\n";
-		cout << "xVals[i+1]: " << xVals[i+1] << "\n";
-		cout << "hVals[i]: " << hVals[i] << "\n";
-		cout << "hVals[i+1]: " << hVals[i+1] << "\n\n";
-	}
+
 
     //1 complex multiplication pt by pt ie array * array
     
@@ -220,7 +215,12 @@ int main(int argc, char *argv[])
 		 //combined[i] = combined[i]/(nextPow << 1);
 		 
 	 //}
-	
+		 for(int i =0; i<30; i++){
+		cout << "xVals[i]: " << xVals[i] << "\n";
+		cout << "xVals[i+1]: " << xVals[i+1] << "\n";
+		cout << "hVals[i]: " << hVals[i] << "\n";
+		cout << "hVals[i+1]: " << hVals[i+1] << "\n\n";
+	}
 	 
 	
 	
@@ -231,29 +231,44 @@ int main(int argc, char *argv[])
 		 
 	 //}
 	for(int i = 0; i < nextPow; i++){
-		real[i] = combined[i*2]/(nextPow);
+		combined[i]= combined[i]/((double)nextPow); //OPTIMIZE HERE
+		cout << "combined[i] scaled: " << combined[i] <<"\n";
 	}
 	 //for(int i = 0; i< nextPow << 1; i++){
 	//	 real[i] = real[i] /(nextPow);
 		 
 	// }
-	int maxi = 0;
+	double maxi = 0.0;
 	 for(int i =0; i<nextPow; i++){
 		
-		if(abs(real[i] >= max)){
-			maxi = abs(real[i]);
+		if(fabs(combined[i] > maxi)){
+			maxi = fabs(combined[i]);
 		}
 	}
 	
-	float *normalized = new float[nextPow];
+	double *normalized = new double[nextPow];
 	for(int i =0; i<nextPow; i++){
-		normalized[i] = real[i] / max;
+		normalized[i] = combined[i] / maxi;
+		
 			
 	}
 	
-	int outVals[nextPow];
+	cout << "maxi " << maxi << "\n";
+		for(int i =0; i<30; i++){
+		cout << "normalized[i]: " << normalized[i]<< "\n";
+		
+	}
+	
+	
+	int outVals[(xWav.fileSize/2 + hWav.fileSize/2)-1];
 	fillIntArray(normalized, outVals, nextPow);
-	createTone(FREQUENCY,DURATION,MONOPHONIC,nextPow, real, outputFilename);
+		 
+		for(int i =0; i<30; i++){
+		cout << "outValsS[i]: " << outVals[i] << "\n";
+		
+	}
+	 
+	createTone(FREQUENCY,DURATION,MONOPHONIC,max*2, outVals, outputFilename);
 		
     //4 write the result from 3 to the file.
 
@@ -327,25 +342,30 @@ void fillFloatArray(short  * inWav, wavInfo& wav){
 			wav.arr.push_back(0.0);
 			}
 		else if(inWav[i] > 0){
-			//wav.arr.push_back(((float)inWav[i]/(float)32767));
-			wav.arr.push_back((float)inWav[i]);
+			wav.arr.push_back(((float)inWav[i]/(float)32767));
+			//wav.arr.push_back((float)inWav[i]);
 			wav.arr.push_back(0.0);
 		}
 		else{
-			//wav.arr.push_back(((float)inWav[i]/(float)32768));
-			wav.arr.push_back((float)inWav[i]);
+			wav.arr.push_back(((float)inWav[i]/(float)32768));
+			//wav.arr.push_back((float)inWav[i]);
 			wav.arr.push_back(0.0);
 		}		
 	}
 }
 
-void fillIntArray(float y[], int *out, int p){
+void fillIntArray(double y[], int *out, int p){
+	int count = 0;
 	for(int i = 0; i < p; i+=2){
 		if(y[i] >= 0 ){
-			out[i] = (int) (y[i] * 32767);
+			out[count++] = (int) (y[i] * 32767);
+			cout << "testing in array " << y[i] << "\n";
+			//cout << "testing in array " << out[count] << "\n";
 		}
 		else{
-				out[i] = (int)(y[i] * 32768);
+				out[count++] = (int)(y[i] * 32768);
+				cout << "testing in array " << y[i] << "\n";
+				//cout << "testing in array " << out[count] << "\n";
 		}		
 	}	
 }
