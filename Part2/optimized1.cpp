@@ -50,7 +50,7 @@ char * Format;
 char * SubChunkID;
 unsigned int subChunk1Size;
 
-int_least16_t AudioFormat;
+short int AudioFormat;
 unsigned int numChannels;
 unsigned int sampleRate;
 unsigned int ByteRate;
@@ -105,16 +105,15 @@ int main(int argc, char *argv[])
 	char *outputFilename = argv[3];
 	char *IRFilename = argv[2];
 
+
+	//get start time
+	clock_t t;	
+	t = clock();
+	
 	short *x_temp = readWavFile(inputFileName,xWav); //143351
 	short *h_temp = readWavFile(IRFilename, hWav);
-    //int minSize = xWav.arr.size();
-
-	//test IR which changes nothing
-	//for(int i = 0; i < hWav.arr.size(); i++){
-	//	hWav.arr.at(i) = 1.0;
-	//	h_temp[i] = 1;
-	//	h_temp[i] = 1;
-	//}
+    
+    //get max of the two files
 	int max; 
 	if(xWav.fileSize >= hWav.fileSize)
 	{
@@ -122,6 +121,8 @@ int main(int argc, char *argv[])
 	}
 	else{max = hWav.fileSize;}
 	
+	
+	//get the next power of two.
 	int nextPow = getNextPowOf2(max);
 	xWav.nextPow = nextPow;
 	hWav.nextPow = nextPow;
@@ -141,27 +142,17 @@ int main(int argc, char *argv[])
 	memcpy(x_tempPow2, &x_temp[0], xWav.fileSize);
 	memcpy(h_tempPow2, &h_temp[0], hWav.fileSize);
 	
-	//creates an IR which does not change anything, for testing only
-	//for(int i = 0; i<nextPow; i++){
-	//	h_tempPow2[i] = 1;
-	//	if(i<hWav.arr.size()){
-	//		hWav.arr.at(i) = 1.0;
-	//	}
-	//}
-    //cout << nextPow << "\n";
-	fillFloatArray(x_tempPow2, xWav);
-	fillFloatArray(h_tempPow2, hWav);
-
-	//intersperse arrays with zeroes, double the size
-	//fillFloatArray(x_tempPow2, xWav);
-	//fillFloatArray(h_tempPow2, hWav);
 	
-    //for(int i = 0; i< xWav.arr.size(); i++){
-    		//cout << xWav.arr.at(i) <<  " ";
-    //}
+    //fill the arrays with floats, interspersed with zeroes
+    // normalized by max of short int (ie 32676 or 32768)
+	fillFloatArray(x_tempPow2, xWav);
+	fillFloatArray(h_tempPow2, hWav);   
 
+	//create and fill an array of doubles, double the size of nextPow array
     double *xVals = new double[nextPow << 1];
     double *hVals = new double[nextPow << 1];
+    
+    //fill the xValue (the sample file) array
     for(int i = 0; i<nextPow << 1; i++){
 		if(i < xWav.arr.size()){
         xVals[i] = (double) xWav.arr.at(i);
@@ -169,146 +160,73 @@ int main(int argc, char *argv[])
 		else{xVals[i] = 0.0;}
     }
     
+    //fill the hValue (the IR file ) array
     for(int i = 0; i<nextPow << 1; i++){
         if(i < hWav.arr.size()){
         hVals[i] = (double) hWav.arr.at(i);
 		}
 		else{xVals[i] = 0.0;}
     }
-   
-	cout << "before \n";
-	cout << xWav.arr.size() << " " << "nextPow: " << (nextPow) <<"\n";
-    for(int i = 0; i< 30; i++){
-    		cout << xVals[i] <<  " ";
-    }
-
-	 //for(int i =0; i<30; i++){
-		//cout << "xVals[i]: " << xVals[i] << "\n";
-		//cout << "xVals[i+1]: " << xVals[i+1] << "\n";
-		//cout << "hVals[i]: " << hVals[i] << "\n";
-		//cout << "hVals[i+1]: " << hVals[i+1] << "\n\n";
-	//}
-
-	
     
+    
+    //perform the FFT on both the input sample and the impulse response
     four1(xVals-1,nextPow,1);    
-    four1(hVals-1,nextPow,1);
-    
-    cout << "\nafter \n";
-    for(int i = 0; i< 30; i++){
-    		cout << xVals[i] <<  " ";
-    }
-// cout << "\nafter \n";
-    //for(int i = 0; i< nextPow; i++){
-		 //xVals[i] = xVals[i] /(nextPow << 1);
-		 
-	 //}
-    
+    four1(hVals-1,nextPow,1);    
+ 
 
 
-    //1 complex multiplication pt by pt ie array * array
-    
+    //complex multiplication pt by pt ie array * array    
     double *combined = new double[nextPow << 1];
     combined = complexMultiply(xVals,hVals, nextPow );
-    //four1(combined-1,nextPow << 1, 1);
-    
-   //for(int i = 0; i< 300; i++){
-		   //cout << combined[i*2] << " ";
-	//}
+  
 	
-	// for(int i =0; i<30; i++){
-		//cout << combined[i] << " ";
-//	}
-	
-    //2take result and run through iFFT, ie inverse FFT
+    //take result and run through iFFT, ie inverse FFT
 	four1(combined-1,nextPow , -1);
-	//postProcessComplex(combined,nextPow << 1);
-	//	cout << "\n" << "after\n";
-	
-    // 3 take the result from 2 and create normalized array with only the real parts, ie the even values
-     //for(int i = 0; i< nextPow << 1; i++){
-		 //combined[i] = combined[i]/(nextPow << 1);
-		 
-	 //}
-		 for(int i =0; i<30; i++){
-		cout << "xVals[i]: " << xVals[i] << "\n";
-		cout << "xVals[i+1]: " << xVals[i+1] << "\n";
-		cout << "hVals[i]: " << hVals[i] << "\n";
-		cout << "hVals[i+1]: " << hVals[i+1] << "\n\n";
-	}
-	 
 	
 	
-	int * real = new int[nextPow];
+    
+   
 	
-	 //for(int i = 0; i< nextPow << 1; i++){
-		 //cout << combined[i*2]/(nextPow << 1) << " ";
-		 
-	 //}
+	//int * real = new int[nextPow];
+	
+	
+	//scale values based on nextPow size
 	for(int i = 0; i < nextPow << 1; i++){
 		combined[i]= combined[i]/((double)nextPow); //OPTIMIZE HERE
-		//cout << "combined[i] scaled: " << combined[i] <<"\n";
-	}
-	 //for(int i = 0; i< nextPow << 1; i++){
-	//	 real[i] = real[i] /(nextPow);
-		 
-	// }
-	double maxi = 0.0;
-	 for(int i =0; i<nextPow; i++){
 		
+	}
+	
+	
+	
+	double maxi = 0.0;
+	 for(int i =0; i<nextPow; i++){		
 		if(fabs(combined[i] > maxi)){
 			maxi = fabs(combined[i]);
 		}
 	}
 	
+	////Normalize the values based on the maximum absolute value in the array i.e take the result from above and create normalized array
 	double *normalized = new double[nextPow <<  1];
 	for(int i =0; i<nextPow ; i++){
 		normalized[i] = combined[i] / maxi;			
 	}
 	
-	cout << "maxi " << maxi << "\n";
-		//for(int i =0; i<30; i++){
-		//cout << "normalized[i]: " << normalized[i]<< "\n";		
-	//}
+	//cout << "maxi " << maxi << "\n";
 	
 	
-	//int outVals[(xWav.fileSize/2 + hWav.fileSize/2)-1];
+	
+	//Take the nomalized values and create an integer array with only the real parts, ie the even values
 	int *outVals = new int[nextPow];
-	cout << "maxi " << maxi << "\n";
 	fillIntArray(normalized, outVals, nextPow);	 
-		//for(int i =0; i<30; i++){
-		//cout << "outValsS[i]: " << outVals[i] << "\n";		
-	//}
+	//cout << "maxi " << maxi << "\n";
 	 
+	//4 write the result from to the file.
 	createTone(FREQUENCY,DURATION,MONOPHONIC,(xWav.fileSize/2 + hWav.fileSize/2)-1, outVals, outputFilename);
+	
+	//get finish time
+	t = clock() - t;
+	printf("It took me %d clicks (%f seconds) using FFT \n", t, ((float)t) / CLOCKS_PER_SEC);
 		
-    //4 write the result from 3 to the file.
-
-    //convolve, ie do complex number multiplication
-	
-
-	//int p = getNextPowOf2(xWav.arr.size() + hWav.arr.size() - 1);
-	//float* y = new float[p];
-	
-	//FFT HERE
-	
-	
-	//get start time
-	//clock_t t;	
-	//t = clock();
-	//convolve(xWav.arr, xWav.arr.size(), hWav.arr, hWav.arr.size(), y, p);
-	//t = clock() - t;
-	//printf("It took me %d clicks (%f seconds) to convolve.\n", t, ((float)t) / CLOCKS_PER_SEC);
-	//int outVals[p];
-	
-	//fillIntArray(y,outVals,p);	
-	
-	//for debugging
-	//for(int i = 0; i < p; i++){
-		//cout << outVals[i] << " ";
-	//}
-	//createTone(FREQUENCY, DURATION, MONOPHONIC,p, outVals,outputFilename);
-	
   return 0;
 }
 
@@ -340,27 +258,21 @@ double * complexMultiply(double a[], double b[], int ind){
 		return out;
 } 
 
-double * normalize(double in[]){
-		double max = 0.0;
-}
 //intersperse with 0s and normalize the data
 void fillFloatArray(short  * inWav, wavInfo& wav){
 
 	for(int i = 0; i < wav.nextPow; i++)
 	{
-		//cout << i << "\n";
 		if(inWav[i] == 0){ 
 			wav.arr.push_back((float) inWav[i]);
 			wav.arr.push_back(0.0);
 			}
 		else if(inWav[i] > 0){
 			wav.arr.push_back(((float)inWav[i]/(float)32767));
-			//wav.arr.push_back((float)inWav[i]);
 			wav.arr.push_back(0.0);
 		}
 		else{
 			wav.arr.push_back(((float)inWav[i]/(float)32768));
-			//wav.arr.push_back((float)inWav[i]);
 			wav.arr.push_back(0.0);
 		}		
 	}
@@ -370,16 +282,11 @@ void fillIntArray(double y[], int *out, int p){
 	int count = 0;
 	for(int i = 0; i < p; i+=2){
 		if(y[i] >= 0 ){
-			out[count++] = (int) (y[i] * 32767);
-			//cout << "testing in array " << y[i] << "\n";
-			//cout << "testing in array " << out[count] << "\n";
+			out[count++] = (int) (y[i] * 32767);			
 		}
 		else{
-				out[count++] = (int)(y[i] * 32768);
-				//cout << "testing in array " << y[i] << "\n";
-				//cout << "testing in array " << out[count] << "\n";
-		}
-		cout << "count: " << count << " nextPow: " << p << "\n";		
+				out[count++] = (int)(y[i] * 32768);				
+		}				
 	}	
 }
 
