@@ -3,91 +3,91 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls   s/call   s/call  name    
- 91.76      4.42     4.42        3     1.47     1.47  four1(double*, int, int)
-  2.49      4.54     0.12                             main
-  0.83      4.58     0.04 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::operator[](unsigned long)
-  0.73      4.62     0.04 25166064     0.00     0.00  std::vector<float, std::allocator<float> >::size() const
-  0.62      4.65     0.03 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::at(unsigned long)
-  0.62      4.68     0.03 16777216     0.00     0.00  void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&)
-  0.62      4.71     0.03        1     0.03     0.03  complexMultiply(double*, double*, int)
-  0.42      4.73     0.02 16777216     0.00     0.00  void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&)
-  0.42      4.75     0.02 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::push_back(float&&)
-  0.31      4.76     0.02 16777216     0.00     0.00  std::remove_reference<float&>::type&& std::move<float&>(float&)
-  0.21      4.77     0.01 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const
-  0.21      4.78     0.01 16777216     0.00     0.00  void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&)
-  0.21      4.79     0.01  1973509     0.00     0.00  fwriteShortLSB(short, _IO_FILE*)
-  0.21      4.80     0.01        2     0.01     0.05  fillFloatArray(short*, wavInfo&)
-  0.21      4.81     0.01        2     0.01     0.01  void std::_Destroy_aux<true>::__destroy<int*>(int*, int*)
-  0.21      4.82     0.01        1     0.01     0.01  fillIntArray(double*, int*, int)
-  0.00      4.82     0.00 50331696     0.00     0.00  float&& std::forward<float>(std::remove_reference<float>::type&)
-  0.00      4.82     0.00 16777216     0.00     0.00  operator new(unsigned long, void*)
-  0.00      4.82     0.00  4194304     0.00     0.00  __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool)
-  0.00      4.82     0.00      144     0.00     0.00  __gnu_cxx::new_allocator<float>::max_size() const
-  0.00      4.82     0.00      144     0.00     0.00  float* std::__niter_base<float*>(float*)
-  0.00      4.82     0.00       98     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator()
-  0.00      4.82     0.00       96     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const
-  0.00      4.82     0.00       96     0.00     0.00  std::move_iterator<float*>::base() const
-  0.00      4.82     0.00       96     0.00     0.00  std::vector<float, std::allocator<float> >::max_size() const
-  0.00      4.82     0.00       96     0.00     0.00  std::move_iterator<float*>::move_iterator(float*)
-  0.00      4.82     0.00       96     0.00     0.00  std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&)
-  0.00      4.82     0.00       96     0.00     0.00  decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>)
-  0.00      4.82     0.00       96     0.00     0.00  float* std::__miter_base<float*>(float*)
-  0.00      4.82     0.00       96     0.00     0.00  std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*)
-  0.00      4.82     0.00       50     0.00     0.00  void std::_Destroy_aux<true>::__destroy<float*>(float*, float*)
-  0.00      4.82     0.00       50     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long)
-  0.00      4.82     0.00       50     0.00     0.00  void std::_Destroy<float*>(float*, float*)
-  0.00      4.82     0.00       50     0.00     0.00  void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&)
-  0.00      4.82     0.00       48     0.00     0.00  __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long)
-  0.00      4.82     0.00       48     0.00     0.00  __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*)
-  0.00      4.82     0.00       48     0.00     0.00  std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const
-  0.00      4.82     0.00       48     0.00     0.00  float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*)
-  0.00      4.82     0.00       48     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long)
-  0.00      4.82     0.00       48     0.00     0.00  std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long)
-  0.00      4.82     0.00       48     0.00     0.00  std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
-  0.00      4.82     0.00       48     0.00     0.00  void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::__copy_move_a<true, float*, float*>(float*, float*, float*)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&)
-  0.00      4.82     0.00       48     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
-  0.00      4.82     0.00       48     0.00     0.00  float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
-  0.00      4.82     0.00        5     0.00     0.00  fwriteIntLSB(int, _IO_FILE*)
-  0.00      4.82     0.00        4     0.00     0.00  std::fpos<__mbstate_t>::operator long() const
-  0.00      4.82     0.00        4     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
-  0.00      4.82     0.00        3     0.00     0.00  std::fpos<__mbstate_t>::fpos()
-  0.00      4.82     0.00        2     0.00     0.00  readWavFile(char*, wavInfo&)
-  0.00      4.82     0.00        2     0.00     0.00  wavInfo::wavInfo()
-  0.00      4.82     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<float>::new_allocator()
-  0.00      4.82     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<float>::~new_allocator()
-  0.00      4.82     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int>::new_allocator()
-  0.00      4.82     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int>::~new_allocator()
-  0.00      4.82     0.00        2     0.00     0.00  std::allocator<float>::allocator()
-  0.00      4.82     0.00        2     0.00     0.00  std::allocator<float>::~allocator()
-  0.00      4.82     0.00        2     0.00     0.00  std::allocator<int>::allocator()
-  0.00      4.82     0.00        2     0.00     0.00  std::allocator<int>::~allocator()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_Vector_base()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::~_Vector_base()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long)
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_base()
-  0.00      4.82     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::~_Vector_base()
-  0.00      4.82     0.00        2     0.00     0.00  std::vector<float, std::allocator<float> >::vector()
-  0.00      4.82     0.00        2     0.00     0.00  std::vector<float, std::allocator<float> >::~vector()
-  0.00      4.82     0.00        2     0.00     0.00  std::vector<int, std::allocator<int> >::vector()
-  0.00      4.82     0.00        2     0.00     0.01  std::vector<int, std::allocator<int> >::~vector()
-  0.00      4.82     0.00        2     0.00     0.01  void std::_Destroy<int*>(int*, int*)
-  0.00      4.82     0.00        2     0.00     0.01  void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&)
-  0.00      4.82     0.00        1     0.00     0.00  _GLOBAL__sub_I_xWav
-  0.00      4.82     0.00        1     0.00     0.01  createTone(double, double, int, int, int*, char*)
-  0.00      4.82     0.00        1     0.00     0.00  getNextPowOf2(int)
-  0.00      4.82     0.00        1     0.00     0.00  writeWaveFileHeader(int, int, double, _IO_FILE*)
-  0.00      4.82     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+ 90.06      4.50     4.50        3     1.50     1.50  four1(double*, int, int)
+  3.60      4.68     0.18                             main
+  0.80      4.72     0.04 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::operator[](unsigned long)
+  0.70      4.76     0.04 16777216     0.00     0.00  std::remove_reference<float&>::type&& std::move<float&>(float&)
+  0.60      4.79     0.03 16777216     0.00     0.00  void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&)
+  0.60      4.82     0.03  8388608     0.00     0.00  __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool)
+  0.50      4.84     0.03 25166064     0.00     0.00  std::vector<float, std::allocator<float> >::size() const
+  0.50      4.87     0.03 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::push_back(float&&)
+  0.40      4.89     0.02 50331696     0.00     0.00  float&& std::forward<float>(std::remove_reference<float>::type&)
+  0.40      4.91     0.02 16777216     0.00     0.00  void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&)
+  0.40      4.93     0.02 16777216     0.00     0.00  void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&)
+  0.40      4.95     0.02        2     0.01     0.09  fillFloatArray(short*, wavInfo&)
+  0.40      4.97     0.02        1     0.02     0.02  complexMultiply(double*, double*, int)
+  0.30      4.98     0.02 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::at(unsigned long)
+  0.20      4.99     0.01        2     0.01     0.01  wavInfo::wavInfo()
+  0.20      5.00     0.01        1     0.01     0.01  fillIntArray(double*, int*, int)
+  0.00      5.00     0.00 16777216     0.00     0.00  std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const
+  0.00      5.00     0.00 16777216     0.00     0.00  operator new(unsigned long, void*)
+  0.00      5.00     0.00  1973509     0.00     0.00  fwriteShortLSB(short, _IO_FILE*)
+  0.00      5.00     0.00      144     0.00     0.00  __gnu_cxx::new_allocator<float>::max_size() const
+  0.00      5.00     0.00      144     0.00     0.00  float* std::__niter_base<float*>(float*)
+  0.00      5.00     0.00       98     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator()
+  0.00      5.00     0.00       96     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const
+  0.00      5.00     0.00       96     0.00     0.00  std::move_iterator<float*>::base() const
+  0.00      5.00     0.00       96     0.00     0.00  std::vector<float, std::allocator<float> >::max_size() const
+  0.00      5.00     0.00       96     0.00     0.00  std::move_iterator<float*>::move_iterator(float*)
+  0.00      5.00     0.00       96     0.00     0.00  std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&)
+  0.00      5.00     0.00       96     0.00     0.00  decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>)
+  0.00      5.00     0.00       96     0.00     0.00  float* std::__miter_base<float*>(float*)
+  0.00      5.00     0.00       96     0.00     0.00  std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*)
+  0.00      5.00     0.00       50     0.00     0.00  void std::_Destroy_aux<true>::__destroy<float*>(float*, float*)
+  0.00      5.00     0.00       50     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long)
+  0.00      5.00     0.00       50     0.00     0.00  void std::_Destroy<float*>(float*, float*)
+  0.00      5.00     0.00       50     0.00     0.00  void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&)
+  0.00      5.00     0.00       48     0.00     0.00  __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long)
+  0.00      5.00     0.00       48     0.00     0.00  __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*)
+  0.00      5.00     0.00       48     0.00     0.00  std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const
+  0.00      5.00     0.00       48     0.00     0.00  float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*)
+  0.00      5.00     0.00       48     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long)
+  0.00      5.00     0.00       48     0.00     0.00  std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long)
+  0.00      5.00     0.00       48     0.00     0.00  std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
+  0.00      5.00     0.00       48     0.00     0.00  void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::__copy_move_a<true, float*, float*>(float*, float*, float*)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&)
+  0.00      5.00     0.00       48     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  0.00      5.00     0.00       48     0.00     0.00  float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
+  0.00      5.00     0.00        5     0.00     0.00  fwriteIntLSB(int, _IO_FILE*)
+  0.00      5.00     0.00        4     0.00     0.00  std::fpos<__mbstate_t>::operator long() const
+  0.00      5.00     0.00        4     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  0.00      5.00     0.00        3     0.00     0.00  std::fpos<__mbstate_t>::fpos()
+  0.00      5.00     0.00        2     0.00     0.00  readWavFile(char*, wavInfo&)
+  0.00      5.00     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<float>::new_allocator()
+  0.00      5.00     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<float>::~new_allocator()
+  0.00      5.00     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int>::new_allocator()
+  0.00      5.00     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int>::~new_allocator()
+  0.00      5.00     0.00        2     0.00     0.00  std::allocator<float>::allocator()
+  0.00      5.00     0.00        2     0.00     0.00  std::allocator<float>::~allocator()
+  0.00      5.00     0.00        2     0.00     0.00  std::allocator<int>::allocator()
+  0.00      5.00     0.00        2     0.00     0.00  std::allocator<int>::~allocator()
+  0.00      5.00     0.00        2     0.00     0.00  void std::_Destroy_aux<true>::__destroy<int*>(int*, int*)
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::_Vector_base()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<float, std::allocator<float> >::~_Vector_base()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long)
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_base()
+  0.00      5.00     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::~_Vector_base()
+  0.00      5.00     0.00        2     0.00     0.00  std::vector<float, std::allocator<float> >::vector()
+  0.00      5.00     0.00        2     0.00     0.00  std::vector<float, std::allocator<float> >::~vector()
+  0.00      5.00     0.00        2     0.00     0.00  std::vector<int, std::allocator<int> >::vector()
+  0.00      5.00     0.00        2     0.00     0.00  std::vector<int, std::allocator<int> >::~vector()
+  0.00      5.00     0.00        2     0.00     0.00  void std::_Destroy<int*>(int*, int*)
+  0.00      5.00     0.00        2     0.00     0.00  void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&)
+  0.00      5.00     0.00        1     0.00     0.01  _GLOBAL__sub_I_xWav
+  0.00      5.00     0.00        1     0.00     0.00  createTone(double, double, int, int, int*, char*)
+  0.00      5.00     0.00        1     0.00     0.00  getNextPowOf2(int)
+  0.00      5.00     0.00        1     0.00     0.00  writeWaveFileHeader(int, int, double, _IO_FILE*)
+  0.00      5.00     0.00        1     0.00     0.01  __static_initialization_and_destruction_0(int, int)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -125,375 +125,374 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.21% of 4.82 seconds
+granularity: each sample hit covers 2 byte(s) for 0.20% of 5.00 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]     99.8    0.12    4.69                 main [1]
-                4.42    0.00       3/3           four1(double*, int, int) [2]
-                0.01    0.10       2/2           fillFloatArray(short*, wavInfo&) [3]
-                0.03    0.07 16777216/16777216     std::vector<float, std::allocator<float> >::at(unsigned long) [4]
-                0.03    0.00       1/1           complexMultiply(double*, double*, int) [12]
-                0.01    0.00 8388608/25166064     std::vector<float, std::allocator<float> >::size() const [9]
-                0.01    0.00       1/1           fillIntArray(double*, int*, int) [20]
-                0.00    0.01       1/1           createTone(double, double, int, int, int*, char*) [19]
-                0.00    0.00 4194304/4194304     __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool) [33]
-                0.00    0.00       2/2           readWavFile(char*, wavInfo&) [67]
-                0.00    0.00       1/3           std::fpos<__mbstate_t>::fpos() [66]
+[1]     99.8    0.18    4.81                 main [1]
+                4.50    0.00       3/3           four1(double*, int, int) [2]
+                0.02    0.15       2/2           fillFloatArray(short*, wavInfo&) [3]
+                0.02    0.06 16777216/16777216     std::vector<float, std::allocator<float> >::at(unsigned long) [6]
+                0.03    0.00 8388608/8388608     __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool) [10]
+                0.02    0.00       1/1           complexMultiply(double*, double*, int) [14]
+                0.01    0.00       1/1           fillIntArray(double*, int*, int) [18]
+                0.01    0.00 8388608/25166064     std::vector<float, std::allocator<float> >::size() const [12]
+                0.00    0.00       2/2           readWavFile(char*, wavInfo&) [64]
+                0.00    0.00       1/3           std::fpos<__mbstate_t>::fpos() [63]
                 0.00    0.00       1/1           getNextPowOf2(int) [91]
+                0.00    0.00       1/1           createTone(double, double, int, int, int*, char*) [90]
 -----------------------------------------------
-                4.42    0.00       3/3           main [1]
-[2]     91.7    4.42    0.00       3         four1(double*, int, int) [2]
+                4.50    0.00       3/3           main [1]
+[2]     90.0    4.50    0.00       3         four1(double*, int, int) [2]
 -----------------------------------------------
-                0.01    0.10       2/2           main [1]
-[3]      2.2    0.01    0.10       2         fillFloatArray(short*, wavInfo&) [3]
-                0.02    0.08 16777216/16777216     std::vector<float, std::allocator<float> >::push_back(float&&) [5]
+                0.02    0.15       2/2           main [1]
+[3]      3.4    0.02    0.15       2         fillFloatArray(short*, wavInfo&) [3]
+                0.03    0.13 16777216/16777216     std::vector<float, std::allocator<float> >::push_back(float&&) [4]
 -----------------------------------------------
-                0.03    0.07 16777216/16777216     main [1]
-[4]      2.1    0.03    0.07 16777216         std::vector<float, std::allocator<float> >::at(unsigned long) [4]
-                0.04    0.00 16777216/16777216     std::vector<float, std::allocator<float> >::operator[](unsigned long) [8]
-                0.01    0.02 16777216/16777216     std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [10]
+                0.03    0.13 16777216/16777216     fillFloatArray(short*, wavInfo&) [3]
+[4]      3.0    0.03    0.13 16777216         std::vector<float, std::allocator<float> >::push_back(float&&) [4]
+                0.03    0.06 16777216/16777216     void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [5]
+                0.04    0.00 16777216/16777216     std::remove_reference<float&>::type&& std::move<float&>(float&) [9]
 -----------------------------------------------
-                0.02    0.08 16777216/16777216     fillFloatArray(short*, wavInfo&) [3]
-[5]      2.0    0.02    0.08 16777216         std::vector<float, std::allocator<float> >::push_back(float&&) [5]
-                0.01    0.05 16777216/16777216     void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [6]
-                0.02    0.00 16777216/16777216     std::remove_reference<float&>::type&& std::move<float&>(float&) [13]
------------------------------------------------
-                0.01    0.05 16777216/16777216     std::vector<float, std::allocator<float> >::push_back(float&&) [5]
-[6]      1.2    0.01    0.05 16777216         void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [6]
+                0.03    0.06 16777216/16777216     std::vector<float, std::allocator<float> >::push_back(float&&) [4]
+[5]      1.8    0.03    0.06 16777216         void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [5]
                 0.02    0.03 16777168/16777216     void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
-                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-                0.00    0.00 16777216/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [31]
+                0.01    0.00 16777216/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [13]
+                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
 -----------------------------------------------
-                0.00    0.00      48/16777216     void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-                0.02    0.03 16777168/16777216     void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [6]
-[7]      1.0    0.02    0.03 16777216         void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
-                0.03    0.00 16777216/16777216     void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
-                0.00    0.00 16777216/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [31]
+                0.02    0.06 16777216/16777216     main [1]
+[6]      1.4    0.02    0.06 16777216         std::vector<float, std::allocator<float> >::at(unsigned long) [6]
+                0.04    0.00 16777216/16777216     std::vector<float, std::allocator<float> >::operator[](unsigned long) [8]
+                0.00    0.02 16777216/16777216     std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [15]
 -----------------------------------------------
-                0.04    0.00 16777216/16777216     std::vector<float, std::allocator<float> >::at(unsigned long) [4]
+                0.00    0.00      48/16777216     void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+                0.02    0.03 16777168/16777216     void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [5]
+[7]      1.1    0.02    0.03 16777216         void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
+                0.02    0.01 16777216/16777216     void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
+                0.01    0.00 16777216/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [13]
+-----------------------------------------------
+                0.04    0.00 16777216/16777216     std::vector<float, std::allocator<float> >::at(unsigned long) [6]
 [8]      0.8    0.04    0.00 16777216         std::vector<float, std::allocator<float> >::operator[](unsigned long) [8]
 -----------------------------------------------
-                0.00    0.00      48/25166064     void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-                0.00    0.00     192/25166064     std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [23]
+                0.04    0.00 16777216/16777216     std::vector<float, std::allocator<float> >::push_back(float&&) [4]
+[9]      0.7    0.04    0.00 16777216         std::remove_reference<float&>::type&& std::move<float&>(float&) [9]
+-----------------------------------------------
+                0.03    0.00 8388608/8388608     main [1]
+[10]     0.6    0.03    0.00 8388608         __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool) [10]
+-----------------------------------------------
+                0.02    0.01 16777216/16777216     void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
+[11]     0.5    0.02    0.01 16777216         void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
+                0.01    0.00 16777216/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [13]
+                0.00    0.00 16777216/16777216     operator new(unsigned long, void*) [29]
+-----------------------------------------------
+                0.00    0.00      48/25166064     void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+                0.00    0.00     192/25166064     std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [22]
                 0.01    0.00 8388608/25166064     main [1]
-                0.02    0.00 16777216/25166064     std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [10]
-[9]      0.7    0.04    0.00 25166064         std::vector<float, std::allocator<float> >::size() const [9]
+                0.02    0.00 16777216/25166064     std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [15]
+[12]     0.5    0.03    0.00 25166064         std::vector<float, std::allocator<float> >::size() const [12]
 -----------------------------------------------
-                0.01    0.02 16777216/16777216     std::vector<float, std::allocator<float> >::at(unsigned long) [4]
-[10]     0.7    0.01    0.02 16777216         std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [10]
-                0.02    0.00 16777216/25166064     std::vector<float, std::allocator<float> >::size() const [9]
+                0.00    0.00      48/50331696     void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+                0.01    0.00 16777216/50331696     void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [5]
+                0.01    0.00 16777216/50331696     void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
+                0.01    0.00 16777216/50331696     void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
+[13]     0.4    0.02    0.00 50331696         float&& std::forward<float>(std::remove_reference<float>::type&) [13]
 -----------------------------------------------
-                0.03    0.00 16777216/16777216     void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
-[11]     0.6    0.03    0.00 16777216         void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
-                0.00    0.00 16777216/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [31]
-                0.00    0.00 16777216/16777216     operator new(unsigned long, void*) [32]
+                0.02    0.00       1/1           main [1]
+[14]     0.4    0.02    0.00       1         complexMultiply(double*, double*, int) [14]
 -----------------------------------------------
-                0.03    0.00       1/1           main [1]
-[12]     0.6    0.03    0.00       1         complexMultiply(double*, double*, int) [12]
+                0.00    0.02 16777216/16777216     std::vector<float, std::allocator<float> >::at(unsigned long) [6]
+[15]     0.3    0.00    0.02 16777216         std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [15]
+                0.02    0.00 16777216/25166064     std::vector<float, std::allocator<float> >::size() const [12]
 -----------------------------------------------
-                0.02    0.00 16777216/16777216     std::vector<float, std::allocator<float> >::push_back(float&&) [5]
-[13]     0.3    0.02    0.00 16777216         std::remove_reference<float&>::type&& std::move<float&>(float&) [13]
+                0.01    0.00       2/2           __static_initialization_and_destruction_0(int, int) [19]
+[16]     0.2    0.01    0.00       2         wavInfo::wavInfo() [16]
+                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::vector() [84]
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::vector() [86]
 -----------------------------------------------
-                0.00    0.00       4/1973509     writeWaveFileHeader(int, int, double, _IO_FILE*) [24]
-                0.01    0.00 1973505/1973509     createTone(double, double, int, int, int*, char*) [19]
-[14]     0.2    0.01    0.00 1973509         fwriteShortLSB(short, _IO_FILE*) [14]
------------------------------------------------
-                0.01    0.00       2/2           void std::_Destroy<int*>(int*, int*) [17]
-[15]     0.2    0.01    0.00       2         void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [15]
------------------------------------------------
-                0.00    0.01       2/2           wavInfo::~wavInfo() [21]
-[16]     0.2    0.00    0.01       2         std::vector<int, std::allocator<int> >::~vector() [16]
-                0.00    0.01       2/2           void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [18]
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [84]
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [86]
------------------------------------------------
-                0.00    0.01       2/2           void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [18]
-[17]     0.2    0.00    0.01       2         void std::_Destroy<int*>(int*, int*) [17]
-                0.01    0.00       2/2           void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [15]
------------------------------------------------
-                0.00    0.01       2/2           std::vector<int, std::allocator<int> >::~vector() [16]
-[18]     0.2    0.00    0.01       2         void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [18]
-                0.00    0.01       2/2           void std::_Destroy<int*>(int*, int*) [17]
------------------------------------------------
-                0.00    0.01       1/1           main [1]
-[19]     0.2    0.00    0.01       1         createTone(double, double, int, int, int*, char*) [19]
-                0.01    0.00 1973505/1973509     fwriteShortLSB(short, _IO_FILE*) [14]
-                0.00    0.00       1/1           writeWaveFileHeader(int, int, double, _IO_FILE*) [24]
+                0.00    0.01       1/1           __libc_csu_init [20]
+[17]     0.2    0.00    0.01       1         _GLOBAL__sub_I_xWav [17]
+                0.00    0.01       1/1           __static_initialization_and_destruction_0(int, int) [19]
 -----------------------------------------------
                 0.01    0.00       1/1           main [1]
-[20]     0.2    0.01    0.00       1         fillIntArray(double*, int*, int) [20]
+[18]     0.2    0.01    0.00       1         fillIntArray(double*, int*, int) [18]
+-----------------------------------------------
+                0.00    0.01       1/1           _GLOBAL__sub_I_xWav [17]
+[19]     0.2    0.00    0.01       1         __static_initialization_and_destruction_0(int, int) [19]
+                0.01    0.00       2/2           wavInfo::wavInfo() [16]
 -----------------------------------------------
                                                  <spontaneous>
-[21]     0.2    0.00    0.01                 wavInfo::~wavInfo() [21]
-                0.00    0.01       2/2           std::vector<int, std::allocator<int> >::~vector() [16]
-                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::~vector() [88]
+[20]     0.2    0.00    0.01                 __libc_csu_init [20]
+                0.00    0.01       1/1           _GLOBAL__sub_I_xWav [17]
 -----------------------------------------------
-                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [6]
-[22]     0.0    0.00    0.00      48         void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-                0.00    0.00      48/48          std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [23]
+                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [5]
+[21]     0.0    0.00    0.00      48         void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+                0.00    0.00      48/48          std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [22]
                 0.00    0.00      48/16777216     void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
-                0.00    0.00      48/25166064     std::vector<float, std::allocator<float> >::size() const [9]
-                0.00    0.00      96/98          std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [36]
-                0.00    0.00      48/48          std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [52]
-                0.00    0.00      48/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [31]
-                0.00    0.00      48/48          float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [60]
-                0.00    0.00      48/50          void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [48]
-                0.00    0.00      48/50          std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [46]
+                0.00    0.00      48/25166064     std::vector<float, std::allocator<float> >::size() const [12]
+                0.00    0.00      48/50331696     float&& std::forward<float>(std::remove_reference<float>::type&) [13]
+                0.00    0.00      96/98          std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [33]
+                0.00    0.00      48/48          std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [49]
+                0.00    0.00      48/48          float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [57]
+                0.00    0.00      48/50          void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [45]
+                0.00    0.00      48/50          std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [43]
 -----------------------------------------------
-                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-[23]     0.0    0.00    0.00      48         std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [23]
-                0.00    0.00     192/25166064     std::vector<float, std::allocator<float> >::size() const [9]
-                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::max_size() const [39]
-                0.00    0.00      48/48          unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [61]
------------------------------------------------
-                0.00    0.00       1/1           createTone(double, double, int, int, int*, char*) [19]
-[24]     0.0    0.00    0.00       1         writeWaveFileHeader(int, int, double, _IO_FILE*) [24]
-                0.00    0.00       4/1973509     fwriteShortLSB(short, _IO_FILE*) [14]
-                0.00    0.00       5/5           fwriteIntLSB(int, _IO_FILE*) [63]
------------------------------------------------
-                0.00    0.00      48/50331696     void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-                0.00    0.00 16777216/50331696     void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [6]
-                0.00    0.00 16777216/50331696     void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [7]
-                0.00    0.00 16777216/50331696     void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
-[31]     0.0    0.00    0.00 50331696         float&& std::forward<float>(std::remove_reference<float>::type&) [31]
+                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+[22]     0.0    0.00    0.00      48         std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [22]
+                0.00    0.00     192/25166064     std::vector<float, std::allocator<float> >::size() const [12]
+                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::max_size() const [36]
+                0.00    0.00      48/48          unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [58]
 -----------------------------------------------
                 0.00    0.00 16777216/16777216     void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [11]
-[32]     0.0    0.00    0.00 16777216         operator new(unsigned long, void*) [32]
+[29]     0.0    0.00    0.00 16777216         operator new(unsigned long, void*) [29]
 -----------------------------------------------
-                0.00    0.00 4194304/4194304     main [1]
-[33]     0.0    0.00    0.00 4194304         __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool) [33]
+                0.00    0.00       4/1973509     writeWaveFileHeader(int, int, double, _IO_FILE*) [92]
+                0.00    0.00 1973505/1973509     createTone(double, double, int, int, int*, char*) [90]
+[30]     0.0    0.00    0.00 1973509         fwriteShortLSB(short, _IO_FILE*) [30]
 -----------------------------------------------
-                0.00    0.00      48/144         __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [50]
-                0.00    0.00      96/144         std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [41]
-[34]     0.0    0.00    0.00     144         __gnu_cxx::new_allocator<float>::max_size() const [34]
+                0.00    0.00      48/144         __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [47]
+                0.00    0.00      96/144         std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [38]
+[31]     0.0    0.00    0.00     144         __gnu_cxx::new_allocator<float>::max_size() const [31]
 -----------------------------------------------
-                0.00    0.00     144/144         float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [57]
-[35]     0.0    0.00    0.00     144         float* std::__niter_base<float*>(float*) [35]
+                0.00    0.00     144/144         float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [54]
+[32]     0.0    0.00    0.00     144         float* std::__niter_base<float*>(float*) [32]
 -----------------------------------------------
-                0.00    0.00       2/98          std::vector<float, std::allocator<float> >::~vector() [88]
-                0.00    0.00      96/98          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-[36]     0.0    0.00    0.00      98         std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [36]
+                0.00    0.00       2/98          std::vector<float, std::allocator<float> >::~vector() [85]
+                0.00    0.00      96/98          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+[33]     0.0    0.00    0.00      98         std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [33]
 -----------------------------------------------
-                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::max_size() const [39]
-[37]     0.0    0.00    0.00      96         std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const [37]
+                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::max_size() const [36]
+[34]     0.0    0.00    0.00      96         std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const [34]
 -----------------------------------------------
-                0.00    0.00      96/96          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [42]
-[38]     0.0    0.00    0.00      96         std::move_iterator<float*>::base() const [38]
+                0.00    0.00      96/96          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [39]
+[35]     0.0    0.00    0.00      96         std::move_iterator<float*>::base() const [35]
 -----------------------------------------------
-                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [23]
-[39]     0.0    0.00    0.00      96         std::vector<float, std::allocator<float> >::max_size() const [39]
-                0.00    0.00      96/96          std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [41]
-                0.00    0.00      96/96          std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const [37]
+                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [22]
+[36]     0.0    0.00    0.00      96         std::vector<float, std::allocator<float> >::max_size() const [36]
+                0.00    0.00      96/96          std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [38]
+                0.00    0.00      96/96          std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const [34]
 -----------------------------------------------
-                0.00    0.00      96/96          std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*) [44]
-[40]     0.0    0.00    0.00      96         std::move_iterator<float*>::move_iterator(float*) [40]
+                0.00    0.00      96/96          std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*) [41]
+[37]     0.0    0.00    0.00      96         std::move_iterator<float*>::move_iterator(float*) [37]
 -----------------------------------------------
-                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::max_size() const [39]
-[41]     0.0    0.00    0.00      96         std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [41]
-                0.00    0.00      96/144         __gnu_cxx::new_allocator<float>::max_size() const [34]
+                0.00    0.00      96/96          std::vector<float, std::allocator<float> >::max_size() const [36]
+[38]     0.0    0.00    0.00      96         std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [38]
+                0.00    0.00      96/144         __gnu_cxx::new_allocator<float>::max_size() const [31]
 -----------------------------------------------
-                0.00    0.00      96/96          float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [62]
-[42]     0.0    0.00    0.00      96         decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [42]
-                0.00    0.00      96/96          std::move_iterator<float*>::base() const [38]
-                0.00    0.00      96/96          float* std::__miter_base<float*>(float*) [43]
+                0.00    0.00      96/96          float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [59]
+[39]     0.0    0.00    0.00      96         decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [39]
+                0.00    0.00      96/96          std::move_iterator<float*>::base() const [35]
+                0.00    0.00      96/96          float* std::__miter_base<float*>(float*) [40]
 -----------------------------------------------
-                0.00    0.00      96/96          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [42]
-[43]     0.0    0.00    0.00      96         float* std::__miter_base<float*>(float*) [43]
+                0.00    0.00      96/96          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [39]
+[40]     0.0    0.00    0.00      96         float* std::__miter_base<float*>(float*) [40]
 -----------------------------------------------
-                0.00    0.00      96/96          float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [60]
-[44]     0.0    0.00    0.00      96         std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*) [44]
-                0.00    0.00      96/96          std::move_iterator<float*>::move_iterator(float*) [40]
+                0.00    0.00      96/96          float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [57]
+[41]     0.0    0.00    0.00      96         std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*) [41]
+                0.00    0.00      96/96          std::move_iterator<float*>::move_iterator(float*) [37]
 -----------------------------------------------
-                0.00    0.00      50/50          void std::_Destroy<float*>(float*, float*) [47]
-[45]     0.0    0.00    0.00      50         void std::_Destroy_aux<true>::__destroy<float*>(float*, float*) [45]
+                0.00    0.00      50/50          void std::_Destroy<float*>(float*, float*) [44]
+[42]     0.0    0.00    0.00      50         void std::_Destroy_aux<true>::__destroy<float*>(float*, float*) [42]
 -----------------------------------------------
-                0.00    0.00       2/50          std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [80]
-                0.00    0.00      48/50          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-[46]     0.0    0.00    0.00      50         std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [46]
-                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [53]
+                0.00    0.00       2/50          std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [77]
+                0.00    0.00      48/50          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+[43]     0.0    0.00    0.00      50         std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [43]
+                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [50]
 -----------------------------------------------
-                0.00    0.00      50/50          void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [48]
-[47]     0.0    0.00    0.00      50         void std::_Destroy<float*>(float*, float*) [47]
-                0.00    0.00      50/50          void std::_Destroy_aux<true>::__destroy<float*>(float*, float*) [45]
+                0.00    0.00      50/50          void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [45]
+[44]     0.0    0.00    0.00      50         void std::_Destroy<float*>(float*, float*) [44]
+                0.00    0.00      50/50          void std::_Destroy_aux<true>::__destroy<float*>(float*, float*) [42]
 -----------------------------------------------
-                0.00    0.00       2/50          std::vector<float, std::allocator<float> >::~vector() [88]
-                0.00    0.00      48/50          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-[48]     0.0    0.00    0.00      50         void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [48]
-                0.00    0.00      50/50          void std::_Destroy<float*>(float*, float*) [47]
+                0.00    0.00       2/50          std::vector<float, std::allocator<float> >::~vector() [85]
+                0.00    0.00      48/50          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+[45]     0.0    0.00    0.00      50         void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [45]
+                0.00    0.00      50/50          void std::_Destroy<float*>(float*, float*) [44]
 -----------------------------------------------
-                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [53]
-[49]     0.0    0.00    0.00      48         __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long) [49]
+                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [50]
+[46]     0.0    0.00    0.00      48         __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long) [46]
 -----------------------------------------------
-                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [54]
-[50]     0.0    0.00    0.00      48         __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [50]
-                0.00    0.00      48/144         __gnu_cxx::new_allocator<float>::max_size() const [34]
+                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [51]
+[47]     0.0    0.00    0.00      48         __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [47]
+                0.00    0.00      48/144         __gnu_cxx::new_allocator<float>::max_size() const [31]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::__copy_move_a<true, float*, float*>(float*, float*, float*) [56]
-[51]     0.0    0.00    0.00      48         float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*) [51]
+                0.00    0.00      48/48          float* std::__copy_move_a<true, float*, float*>(float*, float*, float*) [53]
+[48]     0.0    0.00    0.00      48         float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*) [48]
 -----------------------------------------------
-                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-[52]     0.0    0.00    0.00      48         std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [52]
-                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [54]
+                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+[49]     0.0    0.00    0.00      48         std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [49]
+                0.00    0.00      48/48          std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [51]
 -----------------------------------------------
-                0.00    0.00      48/48          std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [46]
-[53]     0.0    0.00    0.00      48         std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [53]
-                0.00    0.00      48/48          __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long) [49]
+                0.00    0.00      48/48          std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [43]
+[50]     0.0    0.00    0.00      48         std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [50]
+                0.00    0.00      48/48          __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long) [46]
 -----------------------------------------------
-                0.00    0.00      48/48          std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [52]
-[54]     0.0    0.00    0.00      48         std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [54]
-                0.00    0.00      48/48          __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [50]
+                0.00    0.00      48/48          std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [49]
+[51]     0.0    0.00    0.00      48         std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [51]
+                0.00    0.00      48/48          __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [47]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [58]
-[55]     0.0    0.00    0.00      48         float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [55]
-                0.00    0.00      48/48          float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [62]
+                0.00    0.00      48/48          float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [55]
+[52]     0.0    0.00    0.00      48         float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [52]
+                0.00    0.00      48/48          float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [59]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [57]
-[56]     0.0    0.00    0.00      48         float* std::__copy_move_a<true, float*, float*>(float*, float*, float*) [56]
-                0.00    0.00      48/48          float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*) [51]
+                0.00    0.00      48/48          float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [54]
+[53]     0.0    0.00    0.00      48         float* std::__copy_move_a<true, float*, float*>(float*, float*, float*) [53]
+                0.00    0.00      48/48          float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*) [48]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [62]
-[57]     0.0    0.00    0.00      48         float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [57]
-                0.00    0.00     144/144         float* std::__niter_base<float*>(float*) [35]
-                0.00    0.00      48/48          float* std::__copy_move_a<true, float*, float*>(float*, float*, float*) [56]
+                0.00    0.00      48/48          float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [59]
+[54]     0.0    0.00    0.00      48         float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [54]
+                0.00    0.00     144/144         float* std::__niter_base<float*>(float*) [32]
+                0.00    0.00      48/48          float* std::__copy_move_a<true, float*, float*>(float*, float*, float*) [53]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&) [59]
-[58]     0.0    0.00    0.00      48         float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [58]
-                0.00    0.00      48/48          float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [55]
+                0.00    0.00      48/48          float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&) [56]
+[55]     0.0    0.00    0.00      48         float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [55]
+                0.00    0.00      48/48          float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [52]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [60]
-[59]     0.0    0.00    0.00      48         float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&) [59]
-                0.00    0.00      48/48          float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [58]
+                0.00    0.00      48/48          float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [57]
+[56]     0.0    0.00    0.00      48         float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&) [56]
+                0.00    0.00      48/48          float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [55]
 -----------------------------------------------
-                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [22]
-[60]     0.0    0.00    0.00      48         float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [60]
-                0.00    0.00      96/96          std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*) [44]
-                0.00    0.00      48/48          float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&) [59]
+                0.00    0.00      48/48          void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&) [21]
+[57]     0.0    0.00    0.00      48         float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&) [57]
+                0.00    0.00      96/96          std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*) [41]
+                0.00    0.00      48/48          float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&) [56]
 -----------------------------------------------
-                0.00    0.00      48/48          std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [23]
-[61]     0.0    0.00    0.00      48         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [61]
+                0.00    0.00      48/48          std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [22]
+[58]     0.0    0.00    0.00      48         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [58]
 -----------------------------------------------
-                0.00    0.00      48/48          float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [55]
-[62]     0.0    0.00    0.00      48         float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [62]
-                0.00    0.00      96/96          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [42]
-                0.00    0.00      48/48          float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [57]
+                0.00    0.00      48/48          float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [52]
+[59]     0.0    0.00    0.00      48         float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [59]
+                0.00    0.00      96/96          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>) [39]
+                0.00    0.00      48/48          float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*) [54]
 -----------------------------------------------
-                0.00    0.00       5/5           writeWaveFileHeader(int, int, double, _IO_FILE*) [24]
-[63]     0.0    0.00    0.00       5         fwriteIntLSB(int, _IO_FILE*) [63]
+                0.00    0.00       5/5           writeWaveFileHeader(int, int, double, _IO_FILE*) [92]
+[60]     0.0    0.00    0.00       5         fwriteIntLSB(int, _IO_FILE*) [60]
 -----------------------------------------------
-                0.00    0.00       4/4           readWavFile(char*, wavInfo&) [67]
-[64]     0.0    0.00    0.00       4         std::fpos<__mbstate_t>::operator long() const [64]
+                0.00    0.00       4/4           readWavFile(char*, wavInfo&) [64]
+[61]     0.0    0.00    0.00       4         std::fpos<__mbstate_t>::operator long() const [61]
 -----------------------------------------------
-                0.00    0.00       4/4           readWavFile(char*, wavInfo&) [67]
-[65]     0.0    0.00    0.00       4         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [65]
+                0.00    0.00       4/4           readWavFile(char*, wavInfo&) [64]
+[62]     0.0    0.00    0.00       4         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [62]
 -----------------------------------------------
                 0.00    0.00       1/3           main [1]
-                0.00    0.00       2/3           readWavFile(char*, wavInfo&) [67]
-[66]     0.0    0.00    0.00       3         std::fpos<__mbstate_t>::fpos() [66]
+                0.00    0.00       2/3           readWavFile(char*, wavInfo&) [64]
+[63]     0.0    0.00    0.00       3         std::fpos<__mbstate_t>::fpos() [63]
 -----------------------------------------------
                 0.00    0.00       2/2           main [1]
-[67]     0.0    0.00    0.00       2         readWavFile(char*, wavInfo&) [67]
-                0.00    0.00       4/4           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [65]
-                0.00    0.00       4/4           std::fpos<__mbstate_t>::operator long() const [64]
-                0.00    0.00       2/3           std::fpos<__mbstate_t>::fpos() [66]
+[64]     0.0    0.00    0.00       2         readWavFile(char*, wavInfo&) [64]
+                0.00    0.00       4/4           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [62]
+                0.00    0.00       4/4           std::fpos<__mbstate_t>::operator long() const [61]
+                0.00    0.00       2/3           std::fpos<__mbstate_t>::fpos() [63]
 -----------------------------------------------
-                0.00    0.00       2/2           __static_initialization_and_destruction_0(int, int) [92]
-[68]     0.0    0.00    0.00       2         wavInfo::wavInfo() [68]
-                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::vector() [87]
-                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::vector() [89]
+                0.00    0.00       2/2           std::allocator<float>::allocator() [69]
+[65]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<float>::new_allocator() [65]
 -----------------------------------------------
-                0.00    0.00       2/2           std::allocator<float>::allocator() [73]
-[69]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<float>::new_allocator() [69]
+                0.00    0.00       2/2           std::allocator<float>::~allocator() [70]
+[66]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<float>::~new_allocator() [66]
 -----------------------------------------------
-                0.00    0.00       2/2           std::allocator<float>::~allocator() [74]
-[70]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<float>::~new_allocator() [70]
+                0.00    0.00       2/2           std::allocator<int>::allocator() [71]
+[67]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int>::new_allocator() [67]
 -----------------------------------------------
-                0.00    0.00       2/2           std::allocator<int>::allocator() [75]
-[71]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int>::new_allocator() [71]
+                0.00    0.00       2/2           std::allocator<int>::~allocator() [72]
+[68]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int>::~new_allocator() [68]
 -----------------------------------------------
-                0.00    0.00       2/2           std::allocator<int>::~allocator() [76]
-[72]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int>::~new_allocator() [72]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [74]
+[69]     0.0    0.00    0.00       2         std::allocator<float>::allocator() [69]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<float>::new_allocator() [65]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [77]
-[73]     0.0    0.00    0.00       2         std::allocator<float>::allocator() [73]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<float>::new_allocator() [69]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [75]
+[70]     0.0    0.00    0.00       2         std::allocator<float>::~allocator() [70]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<float>::~new_allocator() [66]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [78]
-[74]     0.0    0.00    0.00       2         std::allocator<float>::~allocator() [74]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<float>::~new_allocator() [70]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [78]
+[71]     0.0    0.00    0.00       2         std::allocator<int>::allocator() [71]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<int>::new_allocator() [67]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [81]
-[75]     0.0    0.00    0.00       2         std::allocator<int>::allocator() [75]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<int>::new_allocator() [71]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [79]
+[72]     0.0    0.00    0.00       2         std::allocator<int>::~allocator() [72]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<int>::~new_allocator() [68]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [82]
-[76]     0.0    0.00    0.00       2         std::allocator<int>::~allocator() [76]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<int>::~new_allocator() [72]
+                0.00    0.00       2/2           void std::_Destroy<int*>(int*, int*) [88]
+[73]     0.0    0.00    0.00       2         void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [73]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_base() [79]
-[77]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [77]
-                0.00    0.00       2/2           std::allocator<float>::allocator() [73]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_base() [76]
+[74]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [74]
+                0.00    0.00       2/2           std::allocator<float>::allocator() [69]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [80]
-[78]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [78]
-                0.00    0.00       2/2           std::allocator<float>::~allocator() [74]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [77]
+[75]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [75]
+                0.00    0.00       2/2           std::allocator<float>::~allocator() [70]
 -----------------------------------------------
-                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::vector() [87]
-[79]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::_Vector_base() [79]
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [77]
+                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::vector() [84]
+[76]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::_Vector_base() [76]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [74]
 -----------------------------------------------
-                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::~vector() [88]
-[80]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [80]
-                0.00    0.00       2/50          std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [46]
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [78]
+                0.00    0.00       2/2           std::vector<float, std::allocator<float> >::~vector() [85]
+[77]     0.0    0.00    0.00       2         std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [77]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [75]
+                0.00    0.00       2/50          std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [43]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_base() [85]
-[81]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [81]
-                0.00    0.00       2/2           std::allocator<int>::allocator() [75]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_base() [82]
+[78]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [78]
+                0.00    0.00       2/2           std::allocator<int>::allocator() [71]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [86]
-[82]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [82]
-                0.00    0.00       2/2           std::allocator<int>::~allocator() [76]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [83]
+[79]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [79]
+                0.00    0.00       2/2           std::allocator<int>::~allocator() [72]
 -----------------------------------------------
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [86]
-[83]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [83]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [83]
+[80]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [80]
 -----------------------------------------------
-                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [16]
-[84]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [84]
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [87]
+[81]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [81]
 -----------------------------------------------
-                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::vector() [89]
-[85]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_base() [85]
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [81]
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::vector() [86]
+[82]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_base() [82]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [78]
 -----------------------------------------------
-                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [16]
-[86]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [86]
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [83]
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [82]
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [87]
+[83]     0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [83]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [80]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [79]
 -----------------------------------------------
-                0.00    0.00       2/2           wavInfo::wavInfo() [68]
-[87]     0.0    0.00    0.00       2         std::vector<float, std::allocator<float> >::vector() [87]
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_base() [79]
+                0.00    0.00       2/2           wavInfo::wavInfo() [16]
+[84]     0.0    0.00    0.00       2         std::vector<float, std::allocator<float> >::vector() [84]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::_Vector_base() [76]
 -----------------------------------------------
-                0.00    0.00       2/2           wavInfo::~wavInfo() [21]
-[88]     0.0    0.00    0.00       2         std::vector<float, std::allocator<float> >::~vector() [88]
-                0.00    0.00       2/98          std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [36]
-                0.00    0.00       2/50          void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [48]
-                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [80]
+                0.00    0.00       2/2           wavInfo::~wavInfo() [101]
+[85]     0.0    0.00    0.00       2         std::vector<float, std::allocator<float> >::~vector() [85]
+                0.00    0.00       2/98          std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [33]
+                0.00    0.00       2/50          void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&) [45]
+                0.00    0.00       2/2           std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [77]
 -----------------------------------------------
-                0.00    0.00       2/2           wavInfo::wavInfo() [68]
-[89]     0.0    0.00    0.00       2         std::vector<int, std::allocator<int> >::vector() [89]
-                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_base() [85]
+                0.00    0.00       2/2           wavInfo::wavInfo() [16]
+[86]     0.0    0.00    0.00       2         std::vector<int, std::allocator<int> >::vector() [86]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_base() [82]
 -----------------------------------------------
-                0.00    0.00       1/1           __libc_csu_init [111]
-[90]     0.0    0.00    0.00       1         _GLOBAL__sub_I_xWav [90]
-                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [92]
+                0.00    0.00       2/2           wavInfo::~wavInfo() [101]
+[87]     0.0    0.00    0.00       2         std::vector<int, std::allocator<int> >::~vector() [87]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [81]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [83]
+                0.00    0.00       2/2           void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [89]
+-----------------------------------------------
+                0.00    0.00       2/2           void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [89]
+[88]     0.0    0.00    0.00       2         void std::_Destroy<int*>(int*, int*) [88]
+                0.00    0.00       2/2           void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [73]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [87]
+[89]     0.0    0.00    0.00       2         void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [89]
+                0.00    0.00       2/2           void std::_Destroy<int*>(int*, int*) [88]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[90]     0.0    0.00    0.00       1         createTone(double, double, int, int, int*, char*) [90]
+                0.00    0.00 1973505/1973509     fwriteShortLSB(short, _IO_FILE*) [30]
+                0.00    0.00       1/1           writeWaveFileHeader(int, int, double, _IO_FILE*) [92]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
 [91]     0.0    0.00    0.00       1         getNextPowOf2(int) [91]
 -----------------------------------------------
-                0.00    0.00       1/1           _GLOBAL__sub_I_xWav [90]
-[92]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [92]
-                0.00    0.00       2/2           wavInfo::wavInfo() [68]
+                0.00    0.00       1/1           createTone(double, double, int, int, int*, char*) [90]
+[92]     0.0    0.00    0.00       1         writeWaveFileHeader(int, int, double, _IO_FILE*) [92]
+                0.00    0.00       5/5           fwriteIntLSB(int, _IO_FILE*) [60]
+                0.00    0.00       4/1973509     fwriteShortLSB(short, _IO_FILE*) [30]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -586,32 +585,32 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [90] _GLOBAL__sub_I_xWav    [74] std::allocator<float>::~allocator() [5] std::vector<float, std::allocator<float> >::push_back(float&&)
-  [19] createTone(double, double, int, int, int*, char*) [75] std::allocator<int>::allocator() [87] std::vector<float, std::allocator<float> >::vector()
-  [67] readWavFile(char*, wavInfo&) [76] std::allocator<int>::~allocator() [88] std::vector<float, std::allocator<float> >::~vector()
-  [20] fillIntArray(double*, int*, int) [51] float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*) [8] std::vector<float, std::allocator<float> >::operator[](unsigned long)
-  [63] fwriteIntLSB(int, _IO_FILE*) [45] void std::_Destroy_aux<true>::__destroy<float*>(float*, float*) [89] std::vector<int, std::allocator<int> >::vector()
-  [91] getNextPowOf2(int)     [15] void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [16] std::vector<int, std::allocator<int> >::~vector()
-   [3] fillFloatArray(short*, wavInfo&) [52] std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [42] decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>)
-  [14] fwriteShortLSB(short, _IO_FILE*) [77] std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [43] float* std::__miter_base<float*>(float*)
-  [12] complexMultiply(double*, double*, int) [78] std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [35] float* std::__niter_base<float*>(float*)
-  [24] writeWaveFileHeader(int, int, double, _IO_FILE*) [46] std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [56] float* std::__copy_move_a<true, float*, float*>(float*, float*, float*)
-  [92] __static_initialization_and_destruction_0(int, int) [36] std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [57] float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*)
-   [2] four1(double*, int, int) [79] std::_Vector_base<float, std::allocator<float> >::_Vector_base() [58] float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
-  [68] wavInfo::wavInfo()     [80] std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [59] float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&)
-  [49] __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long) [81] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [44] std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*)
-  [50] __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [82] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [60] float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&)
-  [11] void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [83] std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [61] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
-  [69] __gnu_cxx::new_allocator<float>::new_allocator() [84] std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [62] float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
-  [70] __gnu_cxx::new_allocator<float>::~new_allocator() [85] std::_Vector_base<int, std::allocator<int> >::_Vector_base() [33] __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool)
-  [71] __gnu_cxx::new_allocator<int>::new_allocator() [86] std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [13] std::remove_reference<float&>::type&& std::move<float&>(float&)
-  [72] __gnu_cxx::new_allocator<int>::~new_allocator() [40] std::move_iterator<float*>::move_iterator(float*) [31] float&& std::forward<float>(std::remove_reference<float>::type&)
-  [34] __gnu_cxx::new_allocator<float>::max_size() const [53] std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [47] void std::_Destroy<float*>(float*, float*)
-  [37] std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const [54] std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [48] void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&)
-  [38] std::move_iterator<float*>::base() const [41] std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [17] void std::_Destroy<int*>(int*, int*)
-  [64] std::fpos<__mbstate_t>::operator long() const [7] void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [18] void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&)
-  [23] std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [55] float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [65] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
-  [10] std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [66] std::fpos<__mbstate_t>::fpos() [32] operator new(unsigned long, void*)
-   [9] std::vector<float, std::allocator<float> >::size() const [6] void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [1] main
-  [39] std::vector<float, std::allocator<float> >::max_size() const [22] void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&)
-  [73] std::allocator<float>::allocator() [4] std::vector<float, std::allocator<float> >::at(unsigned long)
+  [17] _GLOBAL__sub_I_xWav    [70] std::allocator<float>::~allocator() [4] std::vector<float, std::allocator<float> >::push_back(float&&)
+  [90] createTone(double, double, int, int, int*, char*) [71] std::allocator<int>::allocator() [84] std::vector<float, std::allocator<float> >::vector()
+  [64] readWavFile(char*, wavInfo&) [72] std::allocator<int>::~allocator() [85] std::vector<float, std::allocator<float> >::~vector()
+  [18] fillIntArray(double*, int*, int) [48] float* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<float>(float const*, float const*, float*) [8] std::vector<float, std::allocator<float> >::operator[](unsigned long)
+  [60] fwriteIntLSB(int, _IO_FILE*) [42] void std::_Destroy_aux<true>::__destroy<float*>(float*, float*) [86] std::vector<int, std::allocator<int> >::vector()
+  [91] getNextPowOf2(int)     [73] void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [87] std::vector<int, std::allocator<int> >::~vector()
+   [3] fillFloatArray(short*, wavInfo&) [49] std::_Vector_base<float, std::allocator<float> >::_M_allocate(unsigned long) [39] decltype (__miter_base(({parm#1}.base)())) std::__miter_base<float*>(std::move_iterator<float*>)
+  [30] fwriteShortLSB(short, _IO_FILE*) [74] std::_Vector_base<float, std::allocator<float> >::_Vector_impl::_Vector_impl() [40] float* std::__miter_base<float*>(float*)
+  [14] complexMultiply(double*, double*, int) [75] std::_Vector_base<float, std::allocator<float> >::_Vector_impl::~_Vector_impl() [32] float* std::__niter_base<float*>(float*)
+  [92] writeWaveFileHeader(int, int, double, _IO_FILE*) [43] std::_Vector_base<float, std::allocator<float> >::_M_deallocate(float*, unsigned long) [53] float* std::__copy_move_a<true, float*, float*>(float*, float*, float*)
+  [19] __static_initialization_and_destruction_0(int, int) [33] std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() [54] float* std::__copy_move_a2<true, float*, float*>(float*, float*, float*)
+   [2] four1(double*, int, int) [76] std::_Vector_base<float, std::allocator<float> >::_Vector_base() [55] float* std::uninitialized_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
+  [16] wavInfo::wavInfo()     [77] std::_Vector_base<float, std::allocator<float> >::~_Vector_base() [56] float* std::__uninitialized_copy_a<std::move_iterator<float*>, float*, float>(std::move_iterator<float*>, std::move_iterator<float*>, float*, std::allocator<float>&)
+  [46] __gnu_cxx::new_allocator<float>::deallocate(float*, unsigned long) [78] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [41] std::move_iterator<float*> std::__make_move_if_noexcept_iterator<float, std::move_iterator<float*> >(float*)
+  [47] __gnu_cxx::new_allocator<float>::allocate(unsigned long, void const*) [79] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [57] float* std::__uninitialized_move_if_noexcept_a<float*, float*, std::allocator<float> >(float*, float*, float*, std::allocator<float>&)
+  [11] void __gnu_cxx::new_allocator<float>::construct<float, float>(float*, float&&) [80] std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [58] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  [65] __gnu_cxx::new_allocator<float>::new_allocator() [81] std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [59] float* std::copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*)
+  [66] __gnu_cxx::new_allocator<float>::~new_allocator() [82] std::_Vector_base<int, std::allocator<int> >::_Vector_base() [10] __gnu_cxx::__enable_if<std::__is_integer<bool>::__value, double>::__type std::fabs<bool>(bool)
+  [67] __gnu_cxx::new_allocator<int>::new_allocator() [83] std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [9] std::remove_reference<float&>::type&& std::move<float&>(float&)
+  [68] __gnu_cxx::new_allocator<int>::~new_allocator() [37] std::move_iterator<float*>::move_iterator(float*) [13] float&& std::forward<float>(std::remove_reference<float>::type&)
+  [31] __gnu_cxx::new_allocator<float>::max_size() const [50] std::allocator_traits<std::allocator<float> >::deallocate(std::allocator<float>&, float*, unsigned long) [44] void std::_Destroy<float*>(float*, float*)
+  [34] std::_Vector_base<float, std::allocator<float> >::_M_get_Tp_allocator() const [51] std::allocator_traits<std::allocator<float> >::allocate(std::allocator<float>&, unsigned long) [45] void std::_Destroy<float*, float>(float*, float*, std::allocator<float>&)
+  [35] std::move_iterator<float*>::base() const [38] std::allocator_traits<std::allocator<float> >::max_size(std::allocator<float> const&) [88] void std::_Destroy<int*>(int*, int*)
+  [61] std::fpos<__mbstate_t>::operator long() const [7] void std::allocator_traits<std::allocator<float> >::construct<float, float>(std::allocator<float>&, float*, float&&) [89] void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&)
+  [22] std::vector<float, std::allocator<float> >::_M_check_len(unsigned long, char const*) const [52] float* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<float*>, float*>(std::move_iterator<float*>, std::move_iterator<float*>, float*) [62] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  [15] std::vector<float, std::allocator<float> >::_M_range_check(unsigned long) const [63] std::fpos<__mbstate_t>::fpos() [29] operator new(unsigned long, void*)
+  [12] std::vector<float, std::allocator<float> >::size() const [5] void std::vector<float, std::allocator<float> >::emplace_back<float>(float&&) [1] main
+  [36] std::vector<float, std::allocator<float> >::max_size() const [21] void std::vector<float, std::allocator<float> >::_M_emplace_back_aux<float>(float&&)
+  [69] std::allocator<float>::allocator() [6] std::vector<float, std::allocator<float> >::at(unsigned long)

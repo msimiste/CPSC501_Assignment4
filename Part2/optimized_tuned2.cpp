@@ -162,16 +162,7 @@ int main(int argc, char *argv[])
 			xVals[i] = 0.0;
 			hVals[i] = 0.0;
 		}
-    }
-    
-    //fill the hValue (the IR file ) array
-    //for(int i = 0; i<nextPow << 1; i++){
-        //if(i < hWav.arr.size()){
-        //hVals[i] = (double) hWav.arr.at(i);
-		//}
-		//else{xVals[i] = 0.0;}
-    //}
-    
+    }   
     
     //perform the FFT on both the input sample and the impulse response
     four1(xVals-1,nextPow,1);    
@@ -185,9 +176,9 @@ int main(int argc, char *argv[])
   
 	
     //take result and run through iFFT, ie inverse FFT
-	four1(combined-1,nextPow , -1);	
+	four1(combined-1,nextPow , -1);
 	
-	
+
 	//scale values based on nextPow size
 	for(int i = 0; i < nextPow << 1; i+=2){
 		combined[i]= combined[i]/((double)nextPow); //OPTIMIZE HERE
@@ -205,13 +196,9 @@ int main(int argc, char *argv[])
 	
 	////Normalize the values based on the maximum absolute value in the array i.e take the result from above and create normalized array
 	double *normalized = new double[nextPow <<  1];
-	for(int i =0; i<nextPow ; i++){
+	for(int i =0; i<nextPow << 1; i+=2){
 		normalized[i] = combined[i] / maxi;			
-	}
-	
-	//cout << "maxi " << maxi << "\n";
-	
-	
+	}	
 	
 	//Take the nomalized values and create an integer array with only the real parts, ie the even values
 	int *outVals = new int[nextPow];

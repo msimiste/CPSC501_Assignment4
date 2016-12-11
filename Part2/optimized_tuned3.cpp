@@ -179,30 +179,27 @@ int main(int argc, char *argv[])
 	four1(combined-1,nextPow , -1);
 	
 
-	//scale values based on nextPow size
-	for(int i = 0; i < nextPow << 1; i++){
-		combined[i]= combined[i]/((double)nextPow); //OPTIMIZE HERE
+	////scale values based on nextPow size
+	//for(int i = 0; i < nextPow << 1; i+=2){
+		//combined[i]= combined[i]/((double)nextPow); 
 		
-	}
+	//}
 	
 	
 	
 	double maxi = 0.0;
-	 for(int i =0; i<nextPow << 1; i++){		
+	 for(int i =0; i<nextPow << 1; i+=2){		
 		if(fabs(combined[i] > maxi)){
 			maxi = fabs(combined[i]);
 		}
+		combined[i]= combined[i]/((double)nextPow); 
 	}
 	
 	////Normalize the values based on the maximum absolute value in the array i.e take the result from above and create normalized array
 	double *normalized = new double[nextPow <<  1];
-	for(int i =0; i<nextPow << 1; i++){
+	for(int i =0; i<nextPow << 1; i+=2){
 		normalized[i] = combined[i] / maxi;			
-	}
-	
-	//cout << "maxi " << maxi << "\n";
-	
-	
+	}	
 	
 	//Take the nomalized values and create an integer array with only the real parts, ie the even values
 	int *outVals = new int[nextPow];
