@@ -179,18 +179,22 @@ int main(int argc, char *argv[])
 	four1(combined-1,nextPow , -1);
 	
 	double maxi = 0.0;
+	double nextP = (double) nextPow;
 	//scale values based on nextPow size
-	for(int i = 0; i < nextPow << 1; i+=2){
-		combined[i]= combined[i]/((double)nextPow); 
-		if(fabs(combined[i] > maxi)){
-			maxi = fabs(combined[i]);
-		}		
+	for(int i = 0; i < nextPow ; i+=2){
+		double indexVal = combined[i];	
+		indexVal = indexVal/nextP; 
+		double absIndVal = fabs(indexVal);
+		if(absIndVal > maxi){
+			maxi = absIndVal;
+		}
+		combined[i] = indexVal;		
 	}
 	
 	
 	////Normalize the values based on the maximum absolute value in the array i.e take the result from above and create normalized array
-	double *normalized = new double[nextPow <<  1];
-	for(int i =0; i<nextPow << 1; i+=2){
+	double *normalized = new double[nextPow];
+	for(int i =0; i<nextPow; i+=2){
 		normalized[i] = combined[i] / maxi;			
 	}	
 	
@@ -264,16 +268,15 @@ void fillFloatArray(short  * inWav, wavInfo& wav){
 void fillIntArray(double y[], int *out, int p){
 	int count = 0;
 	for(int i = 0; i < p; i+=2){
-		double index = y[i];
-		int indexInt = (int) y[i];
-		if(index >= 0 ){
-			out[count++] = indexInt * 32767;			
+		if(y[i] >= 0 ){
+			out[count++] = (int) (y[i] * 32767);			
 		}
 		else{
-				out[count++] = indexInt * 32768;				
+				out[count++] = (int)(y[i] * 32768);				
 		}				
 	}	
 }
+
 
 short * readWavFile(char *inputFileName, wavInfo &wav){
 	
