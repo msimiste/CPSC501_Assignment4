@@ -240,18 +240,22 @@ double * complexMultiply(double a[], double b[], int ind){
 //intersperse with 0s and normalize the data
 void fillFloatArray(short  * inWav, wavInfo& wav){
 
+	float positive = 32767.0;
+	float negative = 32768.0;
 	for(int i = 0; i < wav.nextPow; i++)
-	{
-		if(inWav[i] == 0){ 
-			wav.arr.push_back((float) inWav[i]);
+	{ 
+		short index = inWav[i];
+		float fltIndex = (float) index;
+		if(index == 0){ 
+			wav.arr.push_back(fltIndex);
 			wav.arr.push_back(0.0);
 			}
-		else if(inWav[i] > 0){
-			wav.arr.push_back(((float)inWav[i]/(float)32767));
+		else if(index > 0){
+			wav.arr.push_back(fltIndex / positive);
 			wav.arr.push_back(0.0);
 		}
 		else{
-			wav.arr.push_back(((float)inWav[i]/(float)32768));
+			wav.arr.push_back(fltIndex/negative);
 			wav.arr.push_back(0.0);
 		}		
 	}
@@ -260,11 +264,13 @@ void fillFloatArray(short  * inWav, wavInfo& wav){
 void fillIntArray(double y[], int *out, int p){
 	int count = 0;
 	for(int i = 0; i < p; i+=2){
-		if(y[i] >= 0 ){
-			out[count++] = (int) (y[i] * 32767);			
+		double index = y[i];
+		int indexInt = (int) y[i];
+		if(index >= 0 ){
+			out[count++] = indexInt * 32767;			
 		}
 		else{
-				out[count++] = (int)(y[i] * 32768);				
+				out[count++] = indexInt * 32768;				
 		}				
 	}	
 }
