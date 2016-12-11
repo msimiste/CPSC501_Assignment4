@@ -1,0 +1,26 @@
+f9ff83455bbf0f6edf7e4e73e8d5bc090c8f37a0 fifth and final optimization
+32dff547ce29e923d71ae2d741fea0a8e7750370 optimizaitons 3 and 4
+c604a50b886d186e8aceda498cefe9d0b795925c code tunings - jamming, logical
+65108051710e6fa2c0b4735077d687c8bd69f772 tested optimized1 on Guitar
+8311c9c13a793ebd365d656686d33d45b2ff1edc Noticed potential bug, fixed it, starting over
+5bea858d4877a5d277a452f1183d27b6b350fb11 Completed first code tuning - Jamming
+74d5b397896eb547b1d8c1c58dc99c1325a4d991 did compiler optimizations -o2, -o3, -ofast
+c96819f82ce0e10cbf0230e416f8d15ddf6572cf cleaned up code did timed run on GuitarDry w largeBriteHall, time ~5 seconds
+856994f269def902cdaf895fd1734388a494b6a3 pushing before optimization, and code clean up, will re-test and push after clean-up comments
+a44fecc5939786c9b71489e2cdf4b7c7f54366bf FFT working but seg fault happening at the end
+24a1c0beb2ce7d9c0602e70970e80b30508c898d nothing working
+f1868e1c28acad7d3618e99b71360b978c4ab343 commit before tutorial
+62d5b5fb92c0b08b3c75d99bc1b06568c5dcafd6 added time checking to convolve, need to add this to regular file and test
+017d637b1d3a8ce3de967039c6971f75592af779 transfer from school to laptop
+1c0974de964959df877ebf3fb822eac52eeb2481 figured out power of two issue
+21bc580efbf12e7fc40b05390ff0b782702dcf23 success, clean up required
+1eff0bc2b94d6933888883be36362d6aa7f039d6 mid test, proved that my file is writing properly
+f8eaee821adbd1f3019d451e46ad2f4c5f87698c adding initial merge
+1b9946df8aa4eecfd3c0bb2e77cfb87cdf95d7e4 adding changes from linux path
+4e2308a3c0d35b5ce6b292cfa235203de9e94558 created a visual studio version of the project
+bf07e0a78ab94f54f8d561393fff6fcd0ed1a1a3 updating repo to work from laptop
+dc39486f949a074cea5f32728524dcd831db3d69 pushing for school test
+fef9abd6a27912c02d22bfe829c135c9f42d6bda trying to get floating point calcs working
+ebdcda3f2d32d4c160e9429022c4b4f2a2c9dc27 using struts to store relevent info about .wav files
+eb7a350413625ad566aba29035a2b3db20200e45 adding sample files from d2l
+229798568eaf766c1a90cd3c382badb7d464719b first commit getting things started, partially parsing the header
