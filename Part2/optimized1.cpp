@@ -183,13 +183,7 @@ int main(int argc, char *argv[])
     //take result and run through iFFT, ie inverse FFT
 	four1(combined-1,nextPow , -1);
 	
-	
-    
-   
-	
-	//int * real = new int[nextPow];
-	
-	
+
 	//scale values based on nextPow size
 	for(int i = 0; i < nextPow << 1; i++){
 		combined[i]= combined[i]/((double)nextPow); //OPTIMIZE HERE
@@ -199,7 +193,7 @@ int main(int argc, char *argv[])
 	
 	
 	double maxi = 0.0;
-	 for(int i =0; i<nextPow; i++){		
+	 for(int i =0; i<nextPow << 1; i++){		
 		if(fabs(combined[i] > maxi)){
 			maxi = fabs(combined[i]);
 		}
@@ -207,7 +201,7 @@ int main(int argc, char *argv[])
 	
 	////Normalize the values based on the maximum absolute value in the array i.e take the result from above and create normalized array
 	double *normalized = new double[nextPow <<  1];
-	for(int i =0; i<nextPow ; i++){
+	for(int i =0; i<nextPow << 1; i++){
 		normalized[i] = combined[i] / maxi;			
 	}
 	

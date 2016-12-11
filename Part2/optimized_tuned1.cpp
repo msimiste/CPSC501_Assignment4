@@ -164,14 +164,6 @@ int main(int argc, char *argv[])
 		}
     }
     
-    //fill the hValue (the IR file ) array
-    //for(int i = 0; i<nextPow << 1; i++){
-        //if(i < hWav.arr.size()){
-        //hVals[i] = (double) hWav.arr.at(i);
-		//}
-		//else{xVals[i] = 0.0;}
-    //}
-    
     
     //perform the FFT on both the input sample and the impulse response
     four1(xVals-1,nextPow,1);    
@@ -185,25 +177,18 @@ int main(int argc, char *argv[])
   
 	
     //take result and run through iFFT, ie inverse FFT
-	four1(combined-1,nextPow , -1);
-	
-	
-    
-   
-	
-	//int * real = new int[nextPow];
+	four1(combined-1,nextPow , -1);	
 	
 	
 	//scale values based on nextPow size
-	for(int i = 0; i < nextPow << 1; i++){
+	for(int i = 0; i < nextPow << 1; i+=2){
 		combined[i]= combined[i]/((double)nextPow); //OPTIMIZE HERE
 		
-	}
-	
+	}	
 	
 	
 	double maxi = 0.0;
-	 for(int i =0; i<nextPow; i++){		
+	 for(int i =0; i<nextPow << 1; i+=2){		
 		if(fabs(combined[i] > maxi)){
 			maxi = fabs(combined[i]);
 		}
